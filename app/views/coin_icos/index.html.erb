@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Current Icos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Launcher</th>
+      <th>Description</th>
+      <th>Coin name</th>
+      <th>Presentation link</th>
+      <th>Ico end date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @coin_icos.each do |coin_ico| %>
+      <tr>
+        <td><%= coin_ico.launcher.email %></td>
+        <td><%= coin_ico.description %></td>
+        <td><%= coin_ico.coin_name %></td>
+        <td><%= coin_ico.presentation_link %></td>
+        <td><%= coin_ico.ico_end_date %></td>
+        <td><%= link_to 'Show', coin_ico %></td>
+        <td><%= link_to 'Edit', edit_coin_ico_path(coin_ico) %></td>
+        <td><%= link_to 'Destroy', coin_ico, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Create New Ico', new_coin_ico_path %>

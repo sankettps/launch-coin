@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180220133646) do
+ActiveRecord::Schema.define(version: 20180220170957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "coin_icos", force: :cascade do |t|
+    t.bigint "launcher_id"
+    t.text "description"
+    t.string "coin_name"
+    t.string "presentation_link"
+    t.datetime "ico_end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["launcher_id"], name: "index_coin_icos_on_launcher_id"
+  end
 
   create_table "launchers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,8 +39,11 @@ ActiveRecord::Schema.define(version: 20180220133646) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_launchers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_launchers_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "coin_icos", "launchers"
 end

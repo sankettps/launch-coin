@@ -1,0 +1,43 @@
+<%= form_with(model: coin_ico, local: true) do |form| %>
+  <% if coin_ico.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(coin_ico.errors.count, "error") %> prohibited this coin_ico from being saved:</h2>
+
+      <ul>
+      <% coin_ico.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%#= form.label :launcher_id %>
+    <%#= form.text_field :launcher_id, id: :coin_ico_launcher_id %>
+    <%= form.hidden_field :launcher_id, id: :coin_ico_launcher_id,value: Launcher.first.id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :coin_ico_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :coin_name %>
+    <%= form.text_field :coin_name, id: :coin_ico_coin_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :presentation_link %>
+    <%= form.text_field :presentation_link, id: :coin_ico_presentation_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ico_end_date %>
+    <%= form.datetime_select :ico_end_date, id: :coin_ico_ico_end_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

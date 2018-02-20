@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  launcher: one
+  description: MyText
+  coin_name: MyString
+  presentation_link: MyString
+  ico_end_date: 2018-02-20 22:39:57
+
+two:
+  launcher: two
+  description: MyText
+  coin_name: MyString
+  presentation_link: MyString
+  ico_end_date: 2018-02-20 22:39:57
