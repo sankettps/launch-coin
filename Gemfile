@@ -59,4 +59,4 @@ gem 'devise'
 # Sign in with google
 gem 'omniauth-google-oauth2'
 
-# gem 'omniauth-facebook'
+gem 'omniauth-facebook'
