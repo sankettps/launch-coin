@@ -24,6 +24,16 @@
   <strong>Ico end date:</strong>
   <%= @coin_ico.ico_end_date %>
 </p>
-
+<div>
+  <h2>Comments</h2>
+  <%= render @coin_ico.comments %>
+  <hr>
+  <h3>New Comment</h3>      
+  <div class="row">
+    <div class="col-xs-12">
+      <%= render 'comments/form', comment: @comment %>
+    </div>
+  </div>
+</div>
 <%= link_to 'Edit', edit_coin_ico_path(@coin_ico) %> |
 <%= link_to 'Back', coin_icos_path %>

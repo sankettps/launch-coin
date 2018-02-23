@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180220170957) do
+ActiveRecord::Schema.define(version: 20180223150617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20180220170957) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["launcher_id"], name: "index_coin_icos_on_launcher_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "launcher_id"
+    t.bigint "coin_ico_id"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coin_ico_id"], name: "index_comments_on_coin_ico_id"
+    t.index ["launcher_id"], name: "index_comments_on_launcher_id"
   end
 
   create_table "launchers", force: :cascade do |t|
@@ -46,4 +56,6 @@ ActiveRecord::Schema.define(version: 20180220170957) do
   end
 
   add_foreign_key "coin_icos", "launchers"
+  add_foreign_key "comments", "coin_icos"
+  add_foreign_key "comments", "launchers"
 end

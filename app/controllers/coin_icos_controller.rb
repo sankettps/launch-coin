@@ -10,6 +10,8 @@ class CoinIcosController < ApplicationController
   # GET /coin_icos/1
   # GET /coin_icos/1.json
   def show
+    @comment = @coin_ico.comments.build(launcher_id:current_launcher.id)
+    puts "---------------#{@comment.inspect}"
   end
 
   # GET /coin_icos/new
