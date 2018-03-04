@@ -5,6 +5,7 @@ class Launcher < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,:omniauthable, :omniauth_providers => [:google_oauth2,:facebook]
   has_many :coin_icos, dependent: :destroy 
   has_many :comments, dependent: :destroy 
+  has_many :ratings, dependent: :destroy 
   def self.from_omniauth(access_token)
 	  data = access_token.info
 	  launcher = Launcher.where(:email => data["email"]).first

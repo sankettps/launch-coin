@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  coin_ico: one
+  launcher: one
+  score: 1
+
+two:
+  coin_ico: two
+  launcher: two
+  score: 1

@@ -1,3 +1,4 @@
+<!-- http://paweljaniak.co.za/2013/07/25/5-star-ratings-with-rails/ -->
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -24,6 +25,12 @@
   <strong>Ico end date:</strong>
   <%= @coin_ico.ico_end_date %>
 </p>
+
+<p>Average rating</p>
+<div id="star"></div>
+
+<p>Your rating</p>
+<div id="launcher_star"></div>
 <div>
   <h2>Comments</h2>
   <%= render @coin_ico.comments %>
@@ -37,3 +44,32 @@
 </div>
 <%= link_to 'Edit', edit_coin_ico_path(@coin_ico) %> |
 <%= link_to 'Back', coin_icos_path %>
+
+<script>
+  $('#star').raty({
+    readOnly: true,
+    score: <%= @coin_ico.average_rating %>,
+    path: '/assets'
+  });
+<% if @rating.score > 0 %>
+  $('#launcher_star').raty({
+    readOnly: true,
+    score: <%= @rating.score %>,
+    path: '/assets'
+  });
+<% else %>
+  $('#launcher_star').raty({
+    score: <%= @rating.score %>,
+    path: '/assets',
+    click: function(score, evt) {
+      $.ajax({
+        url: '/ratings/' + <%= @rating.id %>,
+        type: 'PATCH',
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+        dataType: 'script',
+        data: { score: score }
+      });
+    }
+  });
+<% end %>
+</script>

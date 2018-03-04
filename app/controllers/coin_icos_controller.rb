@@ -1,5 +1,6 @@
 class CoinIcosController < ApplicationController
   before_action :set_coin_ico, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_launcher!
 
   # GET /coin_icos
   # GET /coin_icos.json
@@ -11,7 +12,11 @@ class CoinIcosController < ApplicationController
   # GET /coin_icos/1.json
   def show
     @comment = @coin_ico.comments.build(launcher_id:current_launcher.id)
-    puts "---------------#{@comment.inspect}"
+    @rating = Rating.where(coin_ico_id: @coin_ico.id, launcher_id: @current_launcher.id).first
+    unless @rating
+      @rating = Rating.create(coin_ico_id: @coin_ico.id, launcher_id: @current_launcher.id, score: 0)
+    end
+    puts "-------#{@rating.errors.inspect}-----------"
   end
 
   # GET /coin_icos/new

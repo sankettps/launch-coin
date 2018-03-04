@@ -1,0 +1,10 @@
+$('#star').raty({
+  readOnly: true,
+  score: <%= @rating.coin_ico.average_rating %>,
+  path: '/assets'
+});
+$('#launcher_star').raty({
+  readOnly: true,
+  score: <%= @rating.score %>,
+  path: '/assets'
+});
