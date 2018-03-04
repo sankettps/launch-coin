@@ -1,6 +1,6 @@
 class Launchers::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
-    puts "==============#{request.env["omniauth.auth"]}==================="
+    puts "==============#{request.env["omniauth.auth"]}======#{request.env["omniauth.auth"]['provider']}============="
     @launcher = Launcher.from_omniauth(request.env["omniauth.auth"])
     if @launcher.persisted?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Google"

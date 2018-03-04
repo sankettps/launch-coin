@@ -60,7 +60,7 @@
 <% else %>
   $('#launcher_star').raty({
     score: <%= @rating.score %>,
-    path: '/assets',
+    path: '/images',
     click: function(score, evt) {
       $.ajax({
         url: '/ratings/' + <%= @rating.id %>,
