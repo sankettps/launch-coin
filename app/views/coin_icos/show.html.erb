@@ -49,13 +49,13 @@
   $('#star').raty({
     readOnly: true,
     score: <%= @coin_ico.average_rating %>,
-    path: '/assets'
+    path: '/assets/images'
   });
 <% if @rating.score > 0 %>
   $('#launcher_star').raty({
     readOnly: true,
     score: <%= @rating.score %>,
-    path: '/assets'
+    path: '/assets/images'
   });
 <% else %>
   $('#launcher_star').raty({
