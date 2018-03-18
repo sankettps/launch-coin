@@ -82,7 +82,14 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter:  postgresql
   database: launchCoin_production
-  username: launchCoin
-  password: <%= ENV['LAUNCHCOIN_DATABASE_PASSWORD'] %>
+  username: postgres
+  pool: 5
+  timeout: 5000
+  host: localhost
+  port: 5432
+
+  # database: launchCoin_production
+  # username: launchCoin
+  # password: <%= ENV['LAUNCHCOIN_DATABASE_PASSWORD'] %>
