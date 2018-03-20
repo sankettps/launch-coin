@@ -11,7 +11,13 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require jquery-3.3.1
+//= require jquery.min
+//= require bootstrap
+//= require particles
+//= require app
+//= require owl.carousel
+//= require menuzord
+//= require jquery.counterup
+//= require main
 //= require jquery.raty
 //= require turbolinks
-//= require_tree .
