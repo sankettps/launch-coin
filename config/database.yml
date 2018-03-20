@@ -84,8 +84,8 @@ test:
 production:
   adapter:  postgresql
   database: launchCoin_production
-  username: postgres
-  username: postgres
+  username: pguser
+  username: pguser
   pool: 5
   timeout: 5000
   host: localhost
