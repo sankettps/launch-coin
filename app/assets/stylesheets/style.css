@@ -493,7 +493,7 @@ img {
  transition: all .6s ease 0s;
 	text-transform: uppercase;
 	border-radius: 0px;
- max-width: 100#;
+ max-width: 100%;
 	width: 225px;
 	margin-top: 22px;
 }
