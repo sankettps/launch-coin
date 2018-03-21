@@ -5308,7 +5308,7 @@ a.accordion-toggle i {
 	border-radius: 0 30% 0 0;
 }
 #contac-innert .contact-inner:hover > i.fa {
-	color: ##12212f;
+	color: #12212f;
 	background: #000000;
 	transition: all 0.3s ease 0s;
 }
