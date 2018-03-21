@@ -13,8 +13,6 @@
 //= require rails-ujs
 //= require jquery.min
 //= require bootstrap
-//= require particles
-//= require app
 //= require owl.carousel
 //= require menuzord
 //= require jquery.counterup
