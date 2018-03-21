@@ -3614,7 +3614,6 @@ nav.transparrent-bg .menuzord-brand {
 }
 .btn-t a {
 	padding: 12px 25px;
-	;
 	background: #ffaa00;
 	color: #fff;
 	font-size: 15px;
@@ -6995,7 +6994,6 @@ line-height: 31px;
     transition: all 0.6s ease 0s;
     width: 100%;
     letter-spacing: 1px;
-}
 }
 .btn-intro:focus {
 	color: #333333;
