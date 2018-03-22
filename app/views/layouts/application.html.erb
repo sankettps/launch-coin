@@ -9,13 +9,18 @@
   </head>
 
   <body>
-    <div class="container">
-    	<div>
-    		<%= render :partial => "/layouts/shared/header" %>
-    	</div>
-    	<p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
+    <!--preloader start-->
+    <div id="preloader">
+      <div id="loader"></div>
     </div>
+    <!--preloader end--> 
+      <%= yield %>
+    <!-- <div class="container">
+      <div>
+        <%#= render :partial => "/layouts/shared/header" %>
+      </div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div> -->
   </body>
 </html>

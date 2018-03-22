@@ -6583,6 +6583,10 @@ input[type="radio"], input[type="checkbox"] {
 	margin-left: 1%;
 	background-color: #63c6ff;
 }
+.login_social ul li a.google_login {
+	margin-left: 1%;
+	background-color: #de4b39;
+}
 .login .check_login {
 	margin-top: 20px;
 	margin-bottom: 0px;
