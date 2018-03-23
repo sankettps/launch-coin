@@ -20,4 +20,3 @@
 //= require jquery.counterup
 //= require main
 //= require jquery.raty
-//= require turbolinks
