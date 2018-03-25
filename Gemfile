@@ -59,4 +59,9 @@ gem 'devise'
 # Sign in with google
 gem 'omniauth-google-oauth2'
 
+# Sign in with facebook
 gem 'omniauth-facebook'
+
+#for file upload
+gem 'carrierwave', '~> 1.0'
+gem "fog-aws"
