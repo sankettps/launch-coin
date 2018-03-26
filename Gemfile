@@ -65,3 +65,12 @@ gem 'omniauth-facebook'
 #for file upload
 gem 'carrierwave', '~> 1.0'
 gem "fog-aws"
+
+#parse news feed
+gem "feedjira"
+
+#call third party api
+gem "httparty"
+
+#parse html
+gem 'ruby-cheerio'
