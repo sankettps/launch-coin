@@ -10,16 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+  <!-- <div class="frm-wrap"> -->
+          <!-- progressbar -->
   <div class="field">
-    <%#= form.label :launcher_id %>
-    <%#= form.text_field :launcher_id, id: :coin_ico_launcher_id %>
-    <%= form.hidden_field :launcher_id, id: :coin_ico_launcher_id,value: Launcher.first.id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :coin_ico_description %>
+    <%= form.hidden_field :launcher_id, id: :coin_ico_launcher_id,value: Launcher.first.try(:id) %>
   </div>
 
   <div class="field">
@@ -28,8 +22,54 @@
   </div>
 
   <div class="field">
+    <%= form.label :rate %>
+    <%= form.number_field :rate, id: :coin_ico_rate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_supply %>
+    <%= form.number_field :total_supply, id: :coin_ico_total_supply %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :coin_ico_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :website %>
+    <%= form.text_field :website, id: :coin_ico_website %>
+  </div>
+
+
+  <div class="field">
     <%= form.label :presentation_link %>
     <%= form.text_field :presentation_link, id: :coin_ico_presentation_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :facebook_link %>
+    <%= form.text_field :facebook_link, id: :coin_ico_facebook_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :twitter_link %>
+    <%= form.text_field :twitter_link, id: :coin_ico_twitter_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telegram_link %>
+    <%= form.text_field :telegram_link, id: :coin_ico_telegram_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country, id: :coin_ico_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :accepts %>
+    <%= form.text_field :accepts, id: :coin_ico_accepts %>
   </div>
 
   <div class="field">
@@ -39,5 +79,6 @@
 
   <div class="actions">
     <%= form.submit %>
+  </div>
   </div>
 <% end %>

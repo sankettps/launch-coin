@@ -1,6 +1,6 @@
 class CoinIcosController < ApplicationController
   before_action :set_coin_ico, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_launcher!
+  # before_action :authenticate_launcher!
 
   # GET /coin_icos
   # GET /coin_icos.json
@@ -76,6 +76,7 @@ class CoinIcosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coin_ico_params
-      params.require(:coin_ico).permit(:launcher_id, :description, :coin_name, :presentation_link, :ico_end_date)
+      params.require(:coin_ico).permit(:launcher_id,:description,:coin_name,:rate,:total_supply,:website,:presentation_link,:facebook_link,:twitter_link,:telegram_link,:coin_logo,:cover_photo,:white_paper,:country,:accepts,:rounds)
+    
     end
 end

@@ -15,8 +15,10 @@
 //= require bootstrap
 //= require particles
 //= require app
+//= require jquery.easing.min
 //= require owl.carousel
 //= require menuzord
 //= require jquery.counterup
 //= require main
 //= require jquery.raty
+//= require coin_icos

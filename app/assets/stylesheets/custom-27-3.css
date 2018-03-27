@@ -4,14 +4,7 @@
 .coin-img img{width: 100%;}
 span.coin-deatisl{width: calc(100% - 250px);display: inline-block;padding-left: 40px;padding-right: 20px;}
 .coin > ul > li {margin-bottom: 20px;box-shadow: 0 7px 14px 1px rgba(100,125,150,.15);padding: 15px 40px;display: flex;align-items: center;border: 1px solid #f1f1f1;}
-.hero-text{margin-top:0;animation-duration: 2.5s;animation-fill-mode: both;animation-iteration-count: infinite;animation-name: bounce;}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-  40% {transform: translateY(-30px);}
-  60% {transform: translateY(-15px);}
-}
-
+.hero-text{margin-top:0;}
 .coin p {margin: 0;}
 a:hover .white-back{background: #000;border-style: solid;}
 .display-table-cell.bottom-view{vertical-align: bottom;}
@@ -52,6 +45,10 @@ a.black-back.link-btn:hover {background: #333;color: #fff;}
 span.coin-deatisl h2 {margin: 15px 0px;color: #000;font-size: 26px;font-weight: 700;letter-spacing: 1px;}
 .coin > ul > li .btn-style-pinks-nav {display: block;}
 
+
+.frm-wrap{max-width: 800px;margin: 0 auto;margin-top: 60px;}
+.frm-wrap.provid{max-width:750px;}
+.frm-wrap .gray-box{background:#f1f1f1;border:solid 1px #ddd;border-radius:3px;padding:30px;margin:0 0 30px;}
 .frm-wrap .frm-line{margin:0 -10px 25px;}
 .frm-wrap .frm-line:after{clear:both;display:block;content:'';}
 .frm-wrap .frm-line:last-child{margin-bottom:0;}
@@ -78,39 +75,6 @@ button.btn.dropdown-toggle.btn-default {height: 40px;}
 .btn-wrap button.com-btn:hover { background:#333333;}
 
 
-/*form styles*/
-.ms-form {width: 1000px;margin: 50px auto;text-align: center;position: relative;min-height: 700px;overflow: hidden;}
-.ms-form fieldset {background: white;border: 0 none;border-radius: 3px;box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);padding: 20px 30px;box-sizing: border-box;width: 80%;margin: 0 10%;	/*stacking fieldsets above each other*/position: absolute;max-height: 570px;overflow: auto;	}/*Hide all except first fieldset*/.ms-form fieldset:not(:first-of-type) {display: none;}
-
-
-/*inputs*/
-.ms-form input, .ms-form textarea {padding: 15px;border: 1px solid #ccc;border-radius: 3px;margin-bottom: 10px;width: 100%;box-sizing: border-box;font-family: montserrat;color: #2C3E50;font-size: 13px;}
-/*buttons*/
-.ms-form .action-button {width: 100px;background: #ffab00;font-weight: bold;color: white;border: 0 none;border-radius: 1px;cursor: pointer;padding: 10px 5px;margin: 10px 5px;outline: none;}
-.ms-form .action-button:hover, .ms-form .action-button:focus {box-shadow: 0 0 0 2px white, 0 0 0 3px #ffab00;}/*headings*/
-.fs-title {font-size: 18px;text-transform: uppercase;color: #ffab00;margin-bottom: 10px;font-weight: 600;}
-.fs-subtitle {font-weight: normal;font-size: 13px;color: #666;margin-bottom: 20px;}
-/*progressbar*/
-#progressbar {margin-bottom: 30px;overflow: hidden;/*CSS counters to number the steps*/counter-reset: step;}
-#progressbar li {list-style-type: none;color: #333333;text-transform: uppercase;font-size: 12px;width: 25%;float: left;position: relative;font-weight: 600;}
-#progressbar li:before {content: counter(step);counter-increment: step;width: 50px;line-height: 50px;display: block;font-size: 16px;color: #fff;background: #333333;border-radius: 100%;margin: 0 auto 5px auto;}
-
-/*progressbar connectors*/
-#progressbar li:after {content: '';width: 100%;height: 2px;background: #333333;position: absolute;left: -50%;top: 25px;z-index: -1; /*put it behind the numbers*/}
-#progressbar li:first-child:after {/*connector not needed before the first step*/content: none; }
-/*marking active/completed steps green*//*The number of the step and the connector before it = green*/
-#progressbar li.active:before,  #progressbar li.active:after{background: #ffab00;color: white;}
-#progressbar li.active {color: #ffab00;}
-
-.carousel-inner ul li {border: 1px solid #ddd;box-shadow: none;}
-
-
-
-
-@media(max-width: 1024px){
-	.ms-form{width: 100%;}
-}
-
 @media(max-width: 768px){
     .menuzord-menu.menuzord-right {width: 100%;overflow: hidden;}
 }
@@ -123,10 +87,6 @@ button.btn.dropdown-toggle.btn-default {height: 40px;}
     .coin ul.coin-rate{text-align: left;max-width: 100%;}
     .frm-wrap .frm-third{width: 100%; margin-bottom: 25px;}
     .frm-wrap .frm-half{width: 100%; margin-bottom: 25px;}
-    .ms-form fieldset{width: 95%;margin: 0 2.5%;}
-    #progressbar li:before{width: 40px;line-height: 40px;}
-    #progressbar li:after{top: 20px}
-    #progressbar li{font-size: 10px;line-height: 15px;}
 }
 
 @media(max-width: 400px){
