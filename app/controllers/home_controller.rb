@@ -3,12 +3,13 @@ class HomeController < ApplicationController
 		xml = HTTParty.get("https://news.bitcoin.com/feed/").body
 		# puts "<**************************************#{xml}******************************>"
 		@feed = Feedjira::Feed.parse(xml)
-		puts "<=====================#{@feed.entries.first(4)}===================>"
+		# puts "<=====================#{@feed.entries.first(4)}===================>"
 		@news_feeds = {}
 		@feed.entries.first(4).each_with_index do |feed,index|
 			@news_feeds["#{index}"]={}
 			@news_feeds["#{index}"]["title"] = feed.title
 			@news_feeds["#{index}"]["description"] = feed.summary
+			@news_feeds["#{index}"]["published_at"] = feed.published
 			jQuery = RubyCheerio.new(feed.summary)
 			@news_feeds["#{index}"]["image"] = jQuery.find('img')[0].prop('img','src')
 		end

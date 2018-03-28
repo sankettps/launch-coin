@@ -19,6 +19,7 @@
  *= require responsive
  *= require custom
  *= require animate.min
- *= require_tree .
+ *= require bootstrap-datetimepicker
+ *= require bootstrap-select.min
  *= require_self
  */

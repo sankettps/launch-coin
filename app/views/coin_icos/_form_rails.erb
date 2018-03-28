@@ -1,0 +1,190 @@
+<%= form_with(model: coin_ico, local: true,html: { multipart: true }) do |form| %>
+  <% if coin_ico.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(coin_ico.errors.count, "error") %> prohibited this coin_ico from being saved:</h2>
+
+      <ul>
+      <% coin_ico.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!-- <div class="frm-wrap"> -->
+          <!-- progressbar -->
+  <div class="field">
+    <%= form.hidden_field :launcher_id, id: :coin_ico_launcher_id,value: Launcher.first.try(:id) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :coin_name %>
+    <%= form.text_field :coin_name, id: :coin_ico_coin_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rate %>
+    <%= form.number_field :rate, id: :coin_ico_rate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_supply %>
+    <%= form.number_field :total_supply, id: :coin_ico_total_supply %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :coin_ico_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :website %>
+    <%= form.text_field :website, id: :coin_ico_website %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :presentation_link %>
+    <%= form.text_field :presentation_link, id: :coin_ico_presentation_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :facebook_link %>
+    <%= form.text_field :facebook_link, id: :coin_ico_facebook_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :twitter_link %>
+    <%= form.text_field :twitter_link, id: :coin_ico_twitter_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telegram_link %>
+    <%= form.text_field :telegram_link, id: :coin_ico_telegram_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country, id: :coin_ico_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :accepts %>
+    <select class="selectpicker" multiple>
+      <option>Mustard</option>
+      <option>Ketchup</option>
+      <option>Relish</option>
+      <option>Mustard</option>
+      <option>Ketchup</option>
+      <option>Relish</option>
+      <option>Mustard</option>
+      <option>Ketchup</option>
+      <option>Relish</option>
+    </select>
+    <%#= form.text_field :accepts, id: :coin_ico_accepts %>
+  </div>
+
+  <div class="field">
+    <%= form.label :coin_logo %>
+    <input id="coin_ico_coin_logo" type="file" name="coin_ico[coin_logo]" accept="image/x-png,image/gif,image/jpeg">
+    <%#= form.file_field :coin_logo, id: :coin_ico_coin_logo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cover_photo %>
+    <input id="coin_ico_cover_photo" type="file" name="coin_ico[cover_photo]" accept="image/x-png,image/gif,image/jpeg">
+    <%#= form.file_field :cover_photo, id: :coin_ico_cover_photo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :white_paper %>
+    <input id="coin_ico_white_paper" type="file" name="coin_ico[white_paper]" accept="application/pdf">
+    <%#= form.file_field :white_paper, id: :coin_ico_white_paper %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ico_end_date %>
+    <%= form.datetime_select :ico_end_date, id: :coin_ico_ico_end_date %>
+  </div>
+  <div class="form-group">
+    <label>* No Of Round</label>
+    <select class="form-control" id="noOfRound">
+      <option value="1">Round 1</option>
+      <option value="2">Round 2</option>
+      <option value="3">Round 3</option>
+    </select>
+  </div>
+
+  <div class="container round1 release-round">
+    <div class='col-md-6'>
+      <div class="form-group">
+        <div class='input-group date'>
+          <input type='text' class="form-control" name='coin_ico[rounds][1][start_date]' id='startdatepicker1'/>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class='col-md-6'>
+      <div class="form-group">
+        <div class='input-group date'>
+          <input type='text' class="form-control" name='coin_ico[rounds][1][end_date]' id='enddatepicker1'/>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container round2 release-round" style="display: none;">
+    <div class='col-md-6'>
+      <div class="form-group">
+        <div class='input-group date' >
+          <input type='text' class="form-control" name='coin_ico[rounds][2][start_date]' id='startdatepicker2'/>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class='col-md-6'>
+      <div class="form-group">
+        <div class='input-group date' >
+          <input type='text' class="form-control" name='coin_ico[rounds][2][end_date]' id='enddatepicker2'/>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container round3 release-round" style="display: none;">
+    <div class='col-md-6'>
+      <div class="form-group">
+        <div class='input-group date' >
+          <input type='text' class="form-control" name='coin_ico[rounds][3][start_date]' id='startdatepicker3'/>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class='col-md-6'>
+      <div class="form-group">
+        <div class='input-group date' >
+          <input type='text' class="form-control" name='coin_ico[rounds][3][end_date]' id='enddatepicker3'/>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  </div>
+<% end %>

@@ -17,6 +17,7 @@ class CreateCoinIcos < ActiveRecord::Migration[5.1]
       t.string :white_paper
       t.string :country
       t.string :accepts
+      t.string :token_symbol
       t.hstore :rounds
       t.datetime :ico_end_date
 

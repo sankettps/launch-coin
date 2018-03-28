@@ -46,9 +46,9 @@
         <div class="container">
           <div class="row">
             <div class="lead col-lg-6 col-lg-offset-3 col-xm-offset-0 col-xm-12 text-center">
-              <a href="#">
+              <a href="<%= new_coin_ico_path %>">
                 <div class="hero-text white-back">
-                  Upload <span class="yellow">ICO</span></div>
+                  Upload <span class="yellow">ICO</span>
                 </div>
               </a>
             </div>
@@ -486,22 +486,22 @@
   <div class="container">
     <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><img src="/images/logo-2.png"></a>
-    <p class="white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus eveniet nobis aliquam quam odio quisquam cupiditate dicta recusandae ratio</p>
+    <p class="white">We make technology work</p>
     <ul>
       <li><a href="#"> <i class="fa fa-map-marker fa-2x"></i> 321 Awesome New York</a></li>
-      <li><a href="#"><i class="fa fa-envelope-o fa-2x"></i>info@domain.com</a></li>
+      <li><a href="#"><i class="fa fa-envelope-o fa-2x"></i>icototes@gmail.com</a></li>
       <li><a href="#"><i class="fa fa-phone fa-2x"></i>1800-1212-1212 , 256226-25</a></li>
     </ul>
   </div>
   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
     <div class="title">
-      <h3>Popular Posts</h3>
+      <h3>Popular News</h3>
     </div>
     <div class="popular-post">
       <ul>
-        <li> <span class="post-date"><i class="fa fa-arrow-right"></i> 10 jan, 2018</span> <a href="index2.html#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a> </li>
-        <li> <span class="post-date"><i class="fa fa-arrow-right"></i> 10 jan, 2018</span> <a href="index2.html#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a> </li>
-        <li> <span class="post-date"><i class="fa fa-arrow-right"></i> 10 jan, 2018</span> <a href="index2.html#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a> </li>
+        <% @news_feeds.first(2).each do |news| %>
+          <li> <span class="post-date"><i class="fa fa-arrow-right"></i> <%= news[1]['published_at'].strftime("%d %b, %Y") %></span> <a href="#"><%= news[1]['title'].html_safe %></a> </li>
+        <% end %>
       </ul>
     </div>
   </div>
@@ -537,12 +537,11 @@
   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
     <div class="social-media">
       <ul>
-        <li><a href="index2.html#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-        <li><a href="index2.html#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-        <li><a href="index2.html#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-        <li><a href="index2.html#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-        <li><a href="index2.html#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
-        <li><a href="index2.html#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.facebook.com/ICOTotes-734660696740406/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="https://twitter.com/icototes"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.linkedin.com/company/icototes/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+        <li><a href="https://in.pinterest.com/icototes"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.instagram.com/icototes/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
       </ul>
     </div>
   </div>

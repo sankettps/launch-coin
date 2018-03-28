@@ -3,7 +3,6 @@ jQuery(document).ready(function($) {
 	var left, opacity, scale; //fieldset properties which we will animate
 	var animating; //flag to prevent quick multi-click glitches
 	$(document).on('click', '.next', function(event) {
-		console.log("textingggg--->sank")
 	  // $(".next").click(function(){
 	  if(animating) return false;
 	  animating = true;
@@ -74,4 +73,61 @@ jQuery(document).ready(function($) {
 	    easing: 'easeInOutBack'
 	  });
 	});
+
+	$(document).on('change', '#noOfRound', function(event) {
+			// var html = '';
+		// for (i = 0; i < $(this).val(); i++) { 
+		// 	html += "<div class='container'><div class='col-md-5'><div class='form-group'><div class='input-group date' id='startdatepicker"+i+"'><input type='text' class='form-control' name='coin_ico[rounds]["+i+"][start_date]'/><span class='input-group-addon'><span class='glyphicon glyphicon-calendar'></span></span></div></div></div><div class='col-md-5'><div class='form-group'><div class='input-group date' id='enddatepicker"+i+"'><input type='text' class='form-control' name='coin_ico[rounds]["+i+"][start_date]'/><span class='input-group-addon'><span class='glyphicon glyphicon-calendar'></span></span></div></div></div></div>"
+		// }
+		$(".release-round").hide();
+		$(".release-round input").prop('disabled', true);
+		for (i = 1; i <= $(this).val(); i++) {
+			$(".round"+i).show();
+			console.log($(".round"+i).find('input'))
+			$(".round"+i).find('input').prop('disabled', false);
+		}
+
+
+	});
+	$('#startdatepicker1').datetimepicker({
+    format: 'DD/MM/YYYY HH:mm'
+  });
+  $('#enddatepicker1').datetimepicker({
+    format: 'DD/MM/YYYY HH:mm',
+    useCurrent: false
+  });
+  $('#startdatepicker1').on('dp.change', function(e) {
+    $('#enddatepicker1').data('DateTimePicker').minDate(e.date);
+  });
+  $('#enddatepicker1').on('dp.change', function(e) {
+    $('#startdatepicker1').data('DateTimePicker').maxDate(e.date);
+  });
+
+  $('#startdatepicker2').datetimepicker({
+    format: 'DD/MM/YYYY HH:mm'
+  });
+  $('#enddatepicker2').datetimepicker({
+    format: 'DD/MM/YYYY HH:mm',
+    useCurrent: false
+  });
+  $('#startdatepicker2').on('dp.change', function(e) {
+    $('#enddatepicker2').data('DateTimePicker').minDate(e.date);
+  });
+  $('#enddatepicker2').on('dp.change', function(e) {
+    $('#startdatepicker2').data('DateTimePicker').maxDate(e.date);
+  });
+
+  $('#startdatepicker3').datetimepicker({
+    format: 'DD/MM/YYYY HH:mm'
+  });
+  $('#enddatepicker3').datetimepicker({
+    format: 'DD/MM/YYYY HH:mm',
+    useCurrent: false
+  });
+  $('#startdatepicker3').on('dp.change', function(e) {
+    $('#enddatepicker3').data('DateTimePicker').minDate(e.date);
+  });
+  $('#enddatepicker3').on('dp.change', function(e) {
+    $('#startdatepicker3').data('DateTimePicker').maxDate(e.date);
+  });
 });

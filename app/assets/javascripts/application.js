@@ -22,3 +22,6 @@
 //= require main
 //= require jquery.raty
 //= require coin_icos
+//= require moment
+//= require bootstrap-datetimepicker
+//= require bootstrap-select.min
