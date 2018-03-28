@@ -20,6 +20,7 @@
           <div class="frm-half">
             <div class="form-group">
               <label>* Ico Name</label>
+              <%= form.hidden_field :launcher_id, id: :coin_ico_launcher_id,value: Launcher.first.try(:id) %>
               <input type="text" class="form-control" placeholder="Ico Name" name="coin_ico[coin_name]">
             </div>
           </div>
