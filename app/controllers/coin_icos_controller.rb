@@ -35,7 +35,7 @@ class CoinIcosController < ApplicationController
 
     respond_to do |format|
       if @coin_ico.save
-        format.html { redirect_to @coin_ico, notice: 'Coin ico was successfully created.' }
+        format.html { redirect_to coin_icos_path, notice: 'Coin ico was successfully created.' }
         format.json { render :show, status: :created, location: @coin_ico }
       else
         format.html { render :new }
@@ -71,7 +71,7 @@ class CoinIcosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_coin_ico
-      @coin_ico = CoinIco.find(params[:id])
+      @coin_ico = current_launcher.coin_icos.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

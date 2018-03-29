@@ -90,6 +90,7 @@ jQuery(document).ready(function($) {
 
 	});
 	$('#startdatepicker1').datetimepicker({
+		minDate: new Date,
     format: 'DD/MM/YYYY HH:mm'
   });
   $('#enddatepicker1').datetimepicker({
@@ -104,6 +105,7 @@ jQuery(document).ready(function($) {
   });
 
   $('#startdatepicker2').datetimepicker({
+		minDate: new Date,
     format: 'DD/MM/YYYY HH:mm'
   });
   $('#enddatepicker2').datetimepicker({
@@ -118,6 +120,7 @@ jQuery(document).ready(function($) {
   });
 
   $('#startdatepicker3').datetimepicker({
+		minDate: new Date,
     format: 'DD/MM/YYYY HH:mm'
   });
   $('#enddatepicker3').datetimepicker({
