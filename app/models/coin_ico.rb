@@ -7,6 +7,6 @@ class CoinIco < ApplicationRecord
   has_many :comments, dependent: :destroy 
   has_many :ratings, dependent: :destroy
   def average_rating
-	  ratings.sum(:score) / ratings.size
+	  ratings.sum(:score) / ratings.size || 1
 	end 
 end
