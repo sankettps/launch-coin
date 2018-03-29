@@ -1,4 +1,5 @@
 class CoinIco < ApplicationRecord
+	serialize :accepts, Array
 	mount_uploader :coin_logo, CoinImageUploader
 	mount_uploader :cover_photo, CoinImageUploader
 	mount_uploader :white_paper, CoinDocUploader

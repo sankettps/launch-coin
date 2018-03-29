@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20180304130517) do
     t.string "white_paper"
     t.string "country"
     t.string "accepts"
+    t.string "token_symbol"
     t.hstore "rounds"
     t.datetime "ico_end_date"
     t.datetime "created_at", null: false
