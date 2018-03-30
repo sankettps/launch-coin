@@ -206,7 +206,7 @@
             <div class="clearfix"></div>
             <div class="form-group">
               <div class="input-group date">
-                <input type="text" class="form-control" name="coin_ico[rounds][1][start_date]" id="startdatepicker1" value="<%= rounds["1"]["start_date"] %>">
+                <input type="text" class="form-control" name="coin_ico[rounds][1][start_date]" id="startdatepicker1" value="<%= eval(rounds['1'] || '{}').to_h['start_date'] %>" data-val="<%= rounds['1']['start_date'] %>">
                 <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -218,7 +218,7 @@
             <div class="clearfix"></div>
             <div class="form-group">
               <div class="input-group date">
-                <input type="text" class="form-control" name="coin_ico[rounds][1][end_date]" id="enddatepicker1" value="<%= rounds["1"]["end_date"] %>">
+                <input type="text" class="form-control" name="coin_ico[rounds][1][end_date]" id="enddatepicker1" value="<%= eval(rounds["1"] || '{}').to_h["end_date"] %>" data-val="<%= eval(rounds["1"] || '{}').to_h["end_date"] %>">
                 <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -233,7 +233,7 @@
             <div class="clearfix"></div>
             <div class="form-group">
               <div class="input-group date">
-                <input type="text" class="form-control" name="coin_ico[rounds][2][start_date]" value="<%= eval(rounds["2"] || '{}').to_h["start_date"] %>" id="startdatepicker2" <%= rounds_count > 1 ? '' : 'disabled' %>>
+                <input type="text" class="form-control" name="coin_ico[rounds][2][start_date]" value="<%= eval(rounds['2'] || '{}').to_h['start_date'] %>" id="startdatepicker2" <%= rounds_count > 1 ? '' : 'disabled' %> data-val="<%= eval(rounds['2'] || '{}').to_h['start_date'] %>">
                 <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -259,7 +259,7 @@
             <div class="clearfix"></div>
             <div class="form-group">
               <div class="input-group date">
-                <input type="text" class="form-control" name="coin_ico[rounds][3][start_date]" id="startdatepicker3" <%= rounds_count > 2 ? '' : 'disabled' %> value="<%= eval(rounds["3"]|| '{}').to_h["start_date"] %>">
+                <input type="text" class="form-control" name="coin_ico[rounds][3][start_date]" id="startdatepicker3" <%= rounds_count > 2 ? '' : 'disabled' %> value="<%= eval(rounds["3"]|| '{}').to_h["start_date"] %>" data-val="<%= eval(rounds["3"]|| '{}').to_h["start_date"] %>">
                 <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
                 </span>

@@ -1,6 +1,6 @@
 class CoinIcosController < ApplicationController
+  before_action :authenticate_launcher!, except: [:index]
   before_action :set_coin_ico, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_launcher!
 
   # GET /coin_icos
   # GET /coin_icos.json

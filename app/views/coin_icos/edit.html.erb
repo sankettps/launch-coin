@@ -4,3 +4,70 @@
 
 <%= link_to 'Show', @coin_ico %> |
 <%= link_to 'Back', coin_icos_path %>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		// if($('#startdatepicker1').data('val') != ""){
+		// 	$('#startdatepicker1').datetimepicker({
+		// 		defaultDate: new Date($('#startdatepicker1').data('val')),
+		//     format: 'DD/MM/YYYY HH:mm'
+		//   });
+		// }else{
+			$('#startdatepicker1').datetimepicker({
+		    format: 'DD/MM/YYYY HH:mm'
+		  });
+		// }
+	  $('#enddatepicker1').datetimepicker({
+	    format: 'DD/MM/YYYY HH:mm',
+	    useCurrent: false
+	  });
+	  $('#startdatepicker1').on('dp.change', function(e) {
+	    $('#enddatepicker1').data('DateTimePicker').minDate(e.date);
+	  });
+	  $('#enddatepicker1').on('dp.change', function(e) {
+	    $('#startdatepicker1').data('DateTimePicker').maxDate(e.date);
+	  });
+	 //  if($('#startdatepicker2').data('val') != ""){
+		// 	$('#startdatepicker2').datetimepicker({
+		// 		defaultDate: new Date($('#startdatepicker2').data('val')),
+		//     format: 'DD/MM/YYYY HH:mm'
+		//   });
+		// }else{
+			$('#startdatepicker2').datetimepicker({
+		    format: 'DD/MM/YYYY HH:mm'
+		  });
+		// }
+	  $('#enddatepicker2').datetimepicker({
+	    format: 'DD/MM/YYYY HH:mm',
+	    useCurrent: false
+	  });
+	  $('#startdatepicker2').on('dp.change', function(e) {
+	    $('#enddatepicker2').data('DateTimePicker').minDate(e.date);
+	  });
+	  $('#enddatepicker2').on('dp.change', function(e) {
+	    $('#startdatepicker2').data('DateTimePicker').maxDate(e.date);
+	  });
+
+	 //  if($('#startdatepicker3').data('val') != ""){
+		// 	alert()
+		// 	$('#startdatepicker3').datetimepicker({
+		// 		defaultDate: new Date($('#startdatepicker3').data('val')),
+		//     format: 'DD/MM/YYYY HH:mm'
+		//   });
+		// }else{
+		// 	alert()
+			$('#startdatepicker3').datetimepicker({
+		    format: 'DD/MM/YYYY HH:mm'
+		  });
+		// }
+
+	  $('#enddatepicker3').datetimepicker({
+	    format: 'DD/MM/YYYY HH:mm'
+	  });
+	  $('#startdatepicker3').on('dp.change', function(e) {
+	    $('#enddatepicker3').data('DateTimePicker').minDate(e.date);
+	  });
+	  $('#enddatepicker3').on('dp.change', function(e) {
+	    $('#startdatepicker3').data('DateTimePicker').maxDate(e.date);
+	  });
+	});
+</script>

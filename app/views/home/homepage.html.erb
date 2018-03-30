@@ -23,14 +23,16 @@
     <!-- Nav Bar-->
     <nav class="navbar-fixed-top transparrent-bg">
       <div class="container">
-        <div id="menuzord" class="menuzord red"> <a href="#" class="menuzord-brand"><img class="changeable" src="/images/logo-2.png" alt=""></a>
+        <div id="menuzord" class="menuzord red"> <a href="/" class="menuzord-brand"><img class="changeable" src="/images/logo-2.png" alt=""></a>
         <ul class="menuzord-menu mp_menu">
+          <li class="theme-btn-view black-bg"><a href="<%= coin_icos_path %>">All Ico</a></li>
           <% if launcher_signed_in? %>
+          <li class="theme-btn-view black-bg"><a href="#">My Profile</a></li>
           <li class="theme-btn-view yellow-bg" >
             <%= link_to "Log out",destroy_launcher_session_path,method: :delete %>
           </li>
           <% else %>
-          <li class="theme-btn-view black-bg"><a href="<%= new_launcher_session_path %>">Login</a></li>
+          <li class="theme-btn-view yellow-bg"><a href="<%= new_launcher_session_path %>">Login</a></li>
           <li class="theme-btn-view yellow-bg" ><a href="<%= new_launcher_registration_path %>">Register</a></li>
           <% end %>
         </ul>
@@ -514,8 +516,8 @@
         <!-- <li><a href="#"> <i class="fa fa-arrow-right"></i> About Bitcoin</a></li>
         <li><a href="#"> <i class="fa fa-arrow-right"></i> Recent Causes</a></li> -->
         <li><a href="#"> <i class="fa fa-arrow-right"></i> Our Team</a></li>
-        <li><a href="#"> <i class="fa fa-arrow-right"></i> Our Inestor</a></li>
-        <li><a href="index2.html#"> <i class="fa fa-arrow-right"></i> Contact Info</a></li>
+        <li><a href="#"> <i class="fa fa-arrow-right"></i> Our Investor</a></li>
+        <li><a href="#"> <i class="fa fa-arrow-right"></i> Contact Info</a></li>
         <li><a href="#"> <i class="fa fa-arrow-right"></i> Terms of Service</a></li>
         <li><a href="#"> <i class="fa fa-arrow-right"></i> Privacy Policy</a></li>
       </ul>
