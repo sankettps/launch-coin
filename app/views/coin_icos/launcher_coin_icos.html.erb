@@ -5,7 +5,7 @@
     <div class="container">
       <div class="row">
         <div class="lead col-lg-12 col-xm-12 text-center">
-          <h1><span class="top-heading-inner">ALL ICOS</span> </h1>
+          <h1><span class="top-heading-inner">MY ICOS</span> </h1>
           <div class="list-o-i white">
             <!-- <div class="pagenation_links"><a href="#" class="yellow">Home</a><i> </i> / Pages / Login</div> -->
           </div>
@@ -28,6 +28,7 @@
               </span>
               <span class="coin-deatisl">
                 <h2><%= coin_ico.coin_name %></h2>
+                <%= link_to 'Edit', edit_coin_ico_path(coin_ico), style:"color:#337ab7;" %>
                 <ul class="coin-rate" data-rating="<%= coin_ico.average_rating %>">
                   <li>Item Rating : </li>
                   <div id="rating" style="display: inline-block;"></div>
@@ -35,7 +36,7 @@
                 </ul>
                 <p><%= truncate(coin_ico.description, length: 150) %></p>
               </span>
-              <span><%= link_to 'View more', coin_ico,class: "theme-btn btn-style-pinks-nav" %></span>
+              <span><%= link_to 'View more', "#",class: "theme-btn btn-style-pinks-nav" %></span>
             </li>
           <% end %>
         </ul>

@@ -5,7 +5,7 @@ class CoinIcosController < ApplicationController
   # GET /coin_icos
   # GET /coin_icos.json
   def index
-    @coin_icos = CoinIco.all
+    @coin_icos = CoinIco.all.order(:created_at).order("created_at desc")
   end
 
   # GET /coin_icos/1
@@ -49,7 +49,7 @@ class CoinIcosController < ApplicationController
   def update
     respond_to do |format|
       if @coin_ico.update(coin_ico_params)
-        format.html { redirect_to @coin_ico, notice: 'Coin ico was successfully updated.' }
+        format.html { redirect_to coin_icos_path, notice: 'Coin ico was successfully updated.' }
         format.json { render :show, status: :ok, location: @coin_ico }
       else
         format.html { render :edit }
@@ -68,10 +68,15 @@ class CoinIcosController < ApplicationController
     end
   end
 
+  def launcher_coin_icos
+    @coin_icos = current_launcher.coin_icos.order("created_at desc")
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_coin_ico
       @coin_ico = current_launcher.coin_icos.find(params[:id])
+      redirect_to root_path unless @coin_ico.present?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

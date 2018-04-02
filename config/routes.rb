@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'coin_icos/launcher_coin_icos'
   resources :comments
   resources :coin_icos
   resources :ratings, only: :update
