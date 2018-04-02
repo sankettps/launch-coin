@@ -258,8 +258,8 @@ Devise.setup do |config|
   config.omniauth :google_oauth2, "859411109792-ggenqj7fu44dbcq7kruhpgc20aq4oei4.apps.googleusercontent.com", "KAyybaF0r2dm10amsyb1rRve", { }
   #heroku
   # config.omniauth :google_oauth2, "682869416831-hlqfqup5kpbi53kd0eua288rhfgb1ji3.apps.googleusercontent.com", "LKrSWyNdN1EYWfWPTxwnJ5kL", { }
-  config.omniauth :facebook, "2092699420970832", "18a4038d70b4af3ffedd4f371af32faa", callback_url: "https://launch-coin.herokuapp.com/launchers/auth/facebook/callback", scope: 'public_profile,email'
-  # config.omniauth :facebook, "196116837807688", "f5276326bf025f3d8cf636cb2e46053f", callback_url: "https://launch-coin.herokuapp.com/launchers/auth/facebook/callback", scope: 'public_profile,email'
+  # config.omniauth :facebook, "2092699420970832", "18a4038d70b4af3ffedd4f371af32faa", callback_url: "https://launch-coin.herokuapp.com/launchers/auth/facebook/callback", scope: 'public_profile,email'
+  config.omniauth :facebook, "1863214297030443", "5fc83b6caff12a94e7f4d1bea6fd04cf", callback_url: "https://www.icototes.com/launchers/auth/facebook/callback", scope: 'public_profile,email'
   # config.omniauth :facebook, "350079192065002", "f4c7085319de14a0d1aff48e0e43d66a", callback_url: "http://localhost:3000/launchers/auth/facebook/callback"
 
   # ==> Warden configuration
