@@ -1,0 +1,38 @@
+<footer>
+  <div class="bg-foot">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 col-xs-12">
+          <div class="desc-view">
+            <img src="/images/foot-logo.png" alt="">
+            <p>We make technology work</p>
+            <div class="address">
+              <p><img src="/images/map.png"  alt=""> 321 Awesome New York</p>
+              <p><img src="/images/mail.png"  alt=""> icototes@gmail.com</p>
+              <p><img src="/images/call.png"  alt=""> 1800-1212-1212 , 256226-25</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+          <h2>Popular News</h2>
+          <% @news_feeds.each do |news| %>
+            <div class="news-tag">
+              <a href="#"><img src="/images/arrow.png" alt=""> <%= news[1]['published_at'].strftime("%d %b, %Y") %></a>
+              <p><%= news[1]['title'].html_safe %></p>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+          <h2>Quick Links</h2>
+          <ul class="links">
+            <li><a href="#"><img src="/images/arrow.png" alt=""> Our Team</a></li>
+            <li><a href="#"><img src="/images/arrow.png" alt=""> Our Investor</a></li>
+            <li><a href="#"><img src="/images/arrow.png" alt=""> Contact Info</a></li>
+            <li><a href="#"><img src="/images/arrow.png" alt=""> Terms of Service</a></li>
+            <li><a href="#"><img src="/images/arrow.png" alt=""> Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

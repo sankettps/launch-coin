@@ -1,0 +1,17 @@
+<% if launcher_signed_in? %>
+	<%= link_to "Sign out",destroy_launcher_session_path,method: :delete %>
+	<%= link_to "Current ICO",coin_icos_path %>
+<% else %>
+	<%= link_to "Sign In", new_launcher_session_path %>|
+	<%= link_to "Sign Up", new_launcher_registration_path %>
+	<%= link_to "Sign in with Google", launcher_google_oauth2_omniauth_authorize_path %>
+	<%= link_to "Sign in with Facebook", launcher_facebook_omniauth_authorize_path %>
+<% end %>
+
+<!-- https://www.ico-list.com/ -->
+ <!-- https://ico.bitcomo.com -->
+ <!-- https://tokenmarket.net/ico-calendar/upcoming -->
+ <!-- http://crypterio.stylemixthemes.com/ico/ -->
+ <!-- https://www.icoalert.com -->
+ <!-- https://www.listico.io -->
+ <!-- https://www.icohotlist.com -->

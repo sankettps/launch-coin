@@ -11,17 +11,9 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require jquery.min
-//= require bootstrap
-//= require particles
-//= require app
-//= require jquery.easing.min
-//= require owl.carousel
-//= require menuzord
-//= require jquery.counterup
-//= require main
+//= require jquery
+//= require bootstrap.min
+//= require owl.carousel.min
 //= require jquery.raty
-//= require coin_icos
 //= require moment
 //= require bootstrap-datetimepicker
-//= require bootstrap-select.min

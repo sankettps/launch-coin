@@ -1,665 +1,250 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Icototes</title>
-    <meta name="keywords" content="# ">
-    <meta name="description" content="#">
-    <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Favicons -->
-    <link rel="shortcut icon" sizes="32x32" href="/images/favicon.ico"/>
-    <!-- Fonts -->
-    <!-- FONT AWESOME -->
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <%= javascript_include_tag 'application' %>
-  </head>
-  <body>
-    <div id="preloader">
-      <div id="loader"></div>
+<div class="fix-view">
+ <div class="owl-carousel owl-theme" id="owl">
+    <div class="item">
+        <img src="/images/banner-1.png" class="fix-img" />
     </div>
-    <!--preloader end-->
-    <!-- Nav Bar-->
-    <%= render :partial => "/layouts/shared/navbar" %>
-  <!-- END Nav Bar -->
-  <!-- Header -->
-  <div id="particle" class="welcome-image-area particle-bg" data-stellar-background-ratio="0.6">
-    <div id="particles-js"></div>
-    <div class="display-table low-back-up">
-      <div class="display-table-cell bottom-view">
-        <div class="container">
-          <div class="row">
-            <div class="lead col-lg-6 col-lg-offset-3 col-xm-offset-0 col-xm-12 text-center">
-              <a href="<%= new_coin_ico_path %>">
-                <div class="hero-text white-back">
-                  Upload <span class="yellow">ICO</span>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="item">
+        <img src="/images/banner-2.jpg" class="fix-img" />
     </div>
-    <!-- End-Header -->
-    <!-- Demo Heading -->
-    <div class="main-area top-download text-center ">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8">
-            <!-- <p class="top-btn-text">We are here to alert you as any <strong>token sale begins</strong></p> -->
-            <p class="top-btn-text">Start Your Dream <strong>Cryptotoken sale</strong> with Icototes.</p>
-          </div>
-          <!-- <div class="col-md-4 btn-ma"> <a href="#" class="theme-btn btn-style-white"><i class="fa fa-pencil-square-o"></i> More Info...</a> </div> -->
-        </div>
-      </div>
-    </div>
-    <!-- END Demo Heading -->
-    <!-- Content slide -->
-    <div class="join-us">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div  class="carousel slide">
-              <!-- Wrapper for slides -->
-              <div class="carousel-inner">
-                <div class="item active">
-                  <div class="row">
-                    <div class="col-sm-12  col-md-6">
-                      <div class="list-o">
-                        <h1> What Is Hot Coin<span class="yellow"> Today?</span> </h1>
-                        <p> Cryptocurrencies have changed the era of money transaction. Here are some of the trending coin details which runs on the blockchain technology.</p>
-                        <ul>
-                          <li>
-                            <div class="join-us-icon ">
-                              <div class="ico"><img src="/images/coin-1.png"></div>
-                            </div>
-                            <h2 class="title-st">Bitcoin</h2>
-                            <p>The first decentralized digital currency based on blockchain.</p>
-                            <a href="#" class="theme-btn btn-style-pinks-nav remove-top-space">Learn More</a>
-                          </li>
-                          <li>
-                            <div class="join-us-icon ">
-                              <div class="ico"><img src="/images/coin-2.png"></div>
-                            </div>
-                            <h2 class="title-st">Ripple</h2>
-                            <p>Ripple is the catchall name for the cryptocurrency platform, the transactional protocol for which is actually XRP.</p>
-                            <a href="#" class="theme-btn btn-style-pinks-nav remove-top-space">Learn More</a>
-                          </li>
-                          <li>
-                            <div class="join-us-icon ">
-                              <div class="ico"><img src="/images/coin-3.png"></div>
-                            </div>
-                            <h2 class="title-st">ZCash</h2>
-                            <p>If Bitcoin can be compared to http for money, then Zcash is https.</p>
-                            <a href="#" class="theme-btn btn-style-pinks-nav remove-top-space">Learn More</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6">
-                      <div class="ceo img-responsive"> </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- END Content-->
-    <!-- Features - Services  -->
-    <div id="superb-services">
-      <div class="startup text-center">
-        <div class="container">
-          <div class="section-title center text-center">
-            <h2 class="wow fadeInDown">Latest<span class="yellow"> News </span></h2>
-            <hr>
-          </div>
-          <div class="row">
-            <% @news_feeds.each do |news| %>
-            <%#= news %>
-            <div class="col-md-6 col-xs-12 boxs first">
-              <div class="single_services "> <img src="<%= news[1]['image'].html_safe %>" alt=""> </div>
-              <h4><%= news[1]['title'].html_safe %></h4>
-              <div class="news-description"><%= news[1]['description'].html_safe %></div>
-              <!-- <a href="#" class="btn-small">Read more <i class="fa fa-long-arrow-right" aria-hidden="true"></i> </a>  -->
-            </div>
-            <% end %>
-          </div>
-          <!-- <div class="row">
-            <div class="col-md-6 col-xs-12 boxs first">
-              <div class="single_services "> <img src="/images/news-1.jpg" alt=""> </div>
-              <h4>California Software board approves JV proposal for i-Cryptocurrency, ICO</h4>
-              <p>The board of California Software Company on Friday approved a joint venture proposal submitted by Infinia solutions and Services to launch ICO, 'i-Cryptocurrency' and ‘i-Digital Tokens and Coins'.</p>
-            </div>
-            <div class="col-md-6 col-xs-12 boxs second">
-              <div class="single_services "> <img src="/images/news-2.jpg" alt=""> </div>
-              <h4>Cryptocurrency exchange bug allowed users to transfer unlimited Ethereum to themselves</h4>
-              <p>A Dutch fintech company discovered a critical bug in the cryptocurrency exchange Coinbase's system which could have proven to be very costly if exploited by an entity with malicious intent. </p>
-            </div>
-            <div class="col-md-6 col-xs-12 boxs third">
-              <div class="single_services "> <img src="/images/news-3.jpg" alt=""> </div>
-              <h4>Trump bans US use of Venezuelan cryptocurrency</strong></h4>
-              <p>The Trump administration today banned all use by Americans of Venezuelan cryptocurrency, saying that its introduction is intended to skirt US sanctions.</p>
-            </div>
-            <div class="col-md-6 col-xs-12 boxs four">
-              <div class="single_services "> <img src="/images/news-4.jpg" alt=""> </div>
-              <h4>Interested in Bitcoin, Ripple? Beginner's guide to trading on cryptocurrency exchanges</strong></h4>
-              <p>There are multiple exchanges available in India for you to kick-start your cryptocurrency trading.</p>
-            </div>
-          </div> -->
-        </div>
-      </div>
-    </div>
-    <!-- End-Services  -->
-    <!-- About Coin  -->
-    <!-- <div id="benefit" class="benefit ">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-6 col-sm-12 benefit-right no-pad">
-            <div class="benefit-text no-pad">
-              <div class="benefit-heading ">
-                <div class="col-md-12 col-sm-12">
-                  <h3>Latest<span class="yellow">&nbsp;<span class="about-l"><img src="/images/about_l.png"></span><strong> ICO Added </strong></span></h3>
-                  <div class="project-text">CRYPTO <strong>TECNOLOGY</strong></div>
-                  <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur! </p>
-                  <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur <br>
-                    <br>
-                    <a href="#" class="btn-small"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> About More.. </a> </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div -->>
-      <!-- END About  -->
-      <!-- Investores   -->
-      <div id="coin">
-        <div class="section-title center text-center">
-          <h2 class="wow fadeInDown"> Currently on going  <span class="yellow"> Token Sell</span></h2>
-          <hr>
-        </div>
-        <div class="container">
-          <div class="row">
-            <!--Team Carousel -->
-            <div class="owl-carousel team-carousel general-carousel nf-carousel-theme token-sell">
-              <div class="col-md-12 col-sm-12 col-xs-12 blog-ma">
-                <div class="single-blog padding-top">
-                  <div class="feature-images">
-                    <img alt="blog" src="/images/blog/1.jpg">
-                    <div class="overley"></div>
-                  </div>
-                  <div class="feature-coin">
-                    <img src="/images/4new.png" alt="">
-                  </div>
-                  <div class="blog-content">
-                    <h3>4New</h3>
-                    <p>Power to the people literally</p>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="yellow-back">$1.75</div>
-                      </div>
-                      <div class="col-md-6"><a href="https://4new.io/" class="black-back link-btn">View More</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-12 col-sm-12 col-xs-12 blog-ma">
-                <div class="single-blog padding-top">
-                  <div class="feature-images" style="min-height: 191px;">
-                    <img alt="blog" src="/images/blog/2.jpg">
-                    <div class="overley"></div>
-                  </div>
-                  <div class="feature-coin">
-                    <img src="/images/SRCoin.jpg" alt="">
-                  </div>
-                  <div class="blog-content">
-                    <h3>SRCoin</h3>
-                    <p>The first subscription revenue cryptocurrency</p>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="yellow-back">$-</div>
-                      </div>
-                      <div class="col-md-6"><a href="https://www.srcoin.info/" class="black-back link-btn">View More</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-12 col-sm-12 col-xs-12 blog-ma">
-                <div class="single-blog padding-top">
-                  <div class="feature-images" style="max-height: 191px;">
-                    <img alt="blog" src="/images/blog/3.jpg">
-                    <div class="overley"></div>
-                  </div>
-                  <div class="feature-coin">
-                    <img src="/images/patron.png" alt="">
-                  </div>
-                  <div class="blog-content">
-                    <h3>Parton</h3>
-                    <p>Japan's influencer service to the world stage</p>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="yellow-back">$-</div>
-                      </div>
-                      <div class="col-md-6"><a href="https://patron-ico.io/" class="black-back link-btn">View More</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- END OUR Project -->
-      <!-- Blog  -->
-      <div id="blog" class="blog-div-area" style="display: none;">
-        <div class="container">
-          <div class="row">
-            <div class="section-title center text-center">
-              <h2><strong><span class="yellow">Currently Avialable best </span></strong> deals</h2>
-              <hr>
-              <div class="black"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, <br>
-              totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, </div>
-            </div>
-          </div>
-          <div class="blog-content-div">
-            <div class="row">
-              <div class="col-md-4 col-sm-4 col-xs-12 blog-ma">
-                <div class="single-blog">
-                  <div class="feature-images"> 
-                  <a href="#"><img alt="#" src="/images/blog/1.jpg"></a>
-                  <div class="overley"></div>
-                </div>
-                <div class="blog-content">
-                  <h3><a href="#">Blog Title Here</a></h3>
-                  <ul>
-                    <li>blog Item Rating : </li>
-                    <li><a href="#"><i class="fa fa-star"></i></a> </li>
-                    <li><a href="#"><i class="fa fa-star"></i></a> </li>
-                    <li><a href="#"><i class="fa fa-star"></i></a> </li>
-                    <li><a href="#"><i class="fa fa-star"></i></a> </li>
-                    <li><a href="#"><i class="fa fa-star"></i></a> </li>
-                    <li class="comments"><a href="#">2 comments</a> </li>
-                  </ul>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus eveniet nobis aliquam quam odio quisquam cupiditate</p>
-                  <div class="col-md-4 yellow-back"><a href="#">Admin</a></div>
-                  <div class="col-md-4 black-back"><a href="#">Blog</a></div>
-                  <div class="col-md-4 black-gray"><a href="#">News</a></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-12 blog-ma">
-              <div class="single-blog">
-                <div class="feature-images"> <a href="#"><img alt="#" src="/images/blog/2.jpg"> </a>
-                <div class="overley"></div>
-              </div>
-              <div class="blog-content">
-                <h3><a href="#">Blog Title Here</a></h3>
-                <ul>
-                  <li>blog Item Rating : </li>
-                  <li><a href="#"><i class="fa fa-star"></i></a> </li>
-                  <li><a href="#"><i class="fa fa-star"></i></a> </li>
-                  <li><a href="#"><i class="fa fa-star"></i></a> </li>
-                  <li><a href="#"><i class="fa fa-star"></i></a> </li>
-                  <li><a href="#"><i class="fa fa-star"></i></a> </li>
-                  <li class="comments"><a href="#">3 comments</a> </li>
-                </ul>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus eveniet nobis aliquam quam odio quisquam cupiditate</p>
-                <div class="col-md-4 yellow-back"><a href="#">Admin</a></div>
-                <div class="col-md-4 black-back"><a href="#">Blog</a></div>
-                <div class="col-md-4 black-gray"><a href="#">News</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-4 col-xs-12 blog-ma">
-            <div class="single-blog">
-              <div class="feature-images"> <a href="#"> <img alt="#" src="/images/blog/3.jpg"> </a>
-              <div class="overley"></div>
-            </div>
-            <div class="blog-content">
-              <h3><a href="#">Blog Title Here</a></h3>
-              <ul>
-                <li>blog Item Rating : </li>
-                <li><a href="#"><i class="fa fa-star"></i></a> </li>
-                <li><a href="#"><i class="fa fa-star"></i></a> </li>
-                <li><a href="#"><i class="fa fa-star"></i></a> </li>
-                <li><a href="#"><i class="fa fa-star"></i></a> </li>
-                <li><a href="#"><i class="fa fa-star"></i></a> </li>
-                <li class="comments"><a href="#">2 comments</a> </li>
-              </ul>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus eveniet nobis aliquam quam odio quisquam cupiditate</p>
-              <div class="col-md-4 yellow-back"><a href="#">Admin</a></div>
-              <div class="col-md-4 black-back"><a href="#">Blog</a></div>
-              <div class="col-md-4 black-gray"><a href="#">News</a></div>
-            </div>
-          </div>
-        </div>
-      </div>
+     <div class="item">
+        <img src="/images/banner-3.png" class="fix-img" />
     </div>
   </div>
-</div>
-<!-- End-Blog  -->
-<!-- Newsletter -->
-<div id="newsletters" class="bg-newsletter low-blue">
-  <div class="text-con-n  low-back-up">
-    <div class="container">
-      <div class="row">
-        <div class="lead col-lg-8 col-md-offset-2 col-sm-offset-0 col-xm-offset-0 col-xm-12 text-center">
-          <div class="newsletter text-center">
-            <h3 class="white">SUBSCRIBE FOR <strong>OUR NEWSLETTER</strong></h3>
-            <form action="#" method="post" id="newsletter">
-              <div class="newsletter-content">
-                <input type="text" name="email" placeholder="Enter your Email address">
-                <button type="submit" class="button"><span><i class="fa fa-paper-plane-o" aria-hidden="true"></i></span></button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="banner flex-box">
+    <h1>Start Your Dream </h1>
+    <p>Cryptotoken sale  with Icototes.</p>
+    <a href="#">Upload Ico</a>
   </div>
 </div>
-<!-- END OUR Newsletter -->
-<!-- Clients div -->
-<div id="client" class="text-center">
-  <div class="container">
-    <div class="section-title center">
-      <h2>Success <span class="yellow">Stories</span></h2>
-      <hr>
-    </div>
-    <div id="clients" class="owl-carousel">
-      <div class="item">
-        <div class="testimonials">
-          <div class="img-logo">
-            <img src="/images/coin-1.png" alt="">
-          </div>
-          <div class="customer-name">
-            Bitcoin
-          </div>
-          <p>"We have achieved unexpected success in crypto world after hiring icototes."</p>
-        </div>
-      </div>
-      <div class="item">
-        <div class="testimonials">
-          <div class="img-logo">
-            <img src="/images/coin-2.png" alt="">
-          </div>
-          <div class="customer-name">
-            Ripple
-          </div>
-          <p>"We are very glad having icototes expert. They have helped us to take our business to the top"</p>
-        </div>
-      </div>
-      <div class="item">
-        <div class="testimonials">
-          <div class="img-logo">
-            <img src="/images/coin-3.jpg" alt="">
-          </div>
-          <div class="customer-name">
-            ZCash
-          </div>
-          <p>"icototes have amazing expertise in terms of cryptocurrency. They have incresed our token sale overwhelmingly"</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- END Clients-->
-<!--Donate Popup-->
-<div class="modal fade pop-box" id="donate-popup" tabindex="-1" role="dialog" aria-labelledby="donate-popup" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!--Donation div-->
-      <div class="donation-div">
-        <div class="donation-plz">
-          <form method="post" action="contact.html">
-            
-            <!--Form Portlet-->
-            
-            <!--Form Portlet-->
-            <div class="form-portlet">
-              <h4>Consultaion Information</h4>
-              <div class="row clearfix">
-                <div class="form-group col-lg-6 col-md-6 col-xs-12">
-                  <div class="field-label">First Name <span class="required">*</span></div>
-                  <input type="text" name="name" value="" placeholder="First Name" required>
-                </div>
-                <div class="form-group col-lg-6 col-md-6 col-xs-12">
-                  <div class="field-label">Last Name <span class="required">*</span></div>
-                  <input type="text" name="name" value="" placeholder="Last Name" required>
-                </div>
-                <div class="form-group col-lg-6 col-md-6 col-xs-12">
-                  <div class="field-label">Email <span class="required">*</span></div>
-                  <input type="email" name="name" value="" placeholder="Email" required>
-                </div>
-                <div class="form-group col-lg-6 col-md-6 col-xs-12">
-                  <div class="field-label">Phone <span class="required">*</span></div>
-                  <input type="text" name="name" value="" placeholder="Phone" required>
-                </div>
-                <div class="form-group col-lg-6 col-md-6 col-xs-12">
-                  <div class="field-label">Address 1 <span class="required">*</span></div>
-                  <input type="text" name="name" value="" placeholder="Address 1" required>
-                </div>
-                <div class="form-group col-lg-6 col-md-6 col-xs-12">
-                  <div class="field-label">Address 2 <span class="required">*</span></div>
-                  <input type="text" name="name" value="" placeholder="Address 2" required>
-                </div>
-              </div>
-            </div>
-            <br>
-            
-            <!--Form Portlet-->
-            
-            <div class="text-left">
-              <button type="submit" class="theme-btn btn-style-two">Send Now</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
-<!-- END Donate Popup-->
-<!-- Footer Start  -->
-<div class="footer-section-area padding-top-bottom">
+
+<div class="coin-white-box pad-block">
   <div class="container">
     <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><img src="/images/logo-2.png"></a>
-    <p class="white">We make technology work</p>
-    <ul>
-      <li><a href="#"> <i class="fa fa-map-marker fa-2x"></i> 321 Awesome New York</a></li>
-      <li><a href="#"><i class="fa fa-envelope-o fa-2x"></i>icototes@gmail.com</a></li>
-      <li><a href="#"><i class="fa fa-phone fa-2x"></i>1800-1212-1212 , 256226-25</a></li>
-    </ul>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-    <div class="title">
-      <h3>Popular News</h3>
-    </div>
-    <div class="popular-post">
-      <ul>
-        <% @news_feeds.first(2).each do |news| %>
-          <li> <span class="post-date"><i class="fa fa-arrow-right"></i> <%= news[1]['published_at'].strftime("%d %b, %Y") %></span> <a href="#"><%= news[1]['title'].html_safe %></a> </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-    <div class="title">
-      <h3>Quick Links</h3>
-    </div>
-    <div class="information">
-      <ul>
-        <!-- <li><a href="#"> <i class="fa fa-arrow-right"></i> About Bitcoin</a></li>
-        <li><a href="#"> <i class="fa fa-arrow-right"></i> Recent Causes</a></li> -->
-        <li><a href="#"> <i class="fa fa-arrow-right"></i> Our Team</a></li>
-        <li><a href="#"> <i class="fa fa-arrow-right"></i> Our Investor</a></li>
-        <li><a href="#"> <i class="fa fa-arrow-right"></i> Contact Info</a></li>
-        <li><a href="#"> <i class="fa fa-arrow-right"></i> Terms of Service</a></li>
-        <li><a href="#"> <i class="fa fa-arrow-right"></i> Privacy Policy</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-<!-- End Footer -->
-<!-- Copyright Start  -->
-<div class="copy-right-area">
-<div class="container">
-<div class="row">
-  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-    <div class="copy-right">
-      <p>Ico Totes Cryptocurrency Expert, All Rights Reserved. © 2018-19</p>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-    <div class="social-media">
-      <ul>
-        <li><a href="https://www.facebook.com/ICOTotes-734660696740406/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-        <li><a href="https://twitter.com/icototes"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-        <li><a href="https://www.linkedin.com/company/icototes/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-        <li><a href="https://in.pinterest.com/icototes"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-        <li><a href="https://www.instagram.com/icototes/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-      </ul>
+      <div class="col-xs-12">
+         <div id="owl-demo2">
+            <div class="item">
+              <div class="coin-box">
+                <div class="back-profile" style="background-image:url('/images/back-bg.jpg')";></div>
+                  <div class="coin-logo">
+                    <img src="/images/coin.png" alt="">
+                  </div>
+                <h2>Bitcoin</h2>
+                <p>The first decentralized digital currency based on blockchain.</p>
+                  <a href="#">Read More</a>
+              </div>
+            </div>
+            <div class="item">
+              <div class="coin-box">
+                <div class="back-profile" style="background-image:url('/images/back-bg.jpg')";></div>
+                  <div class="coin-logo">
+                    <img src="/images/coin-2.png" alt="">
+                  </div>
+                <h2>Ripple</h2>
+                <p>Ripple is the catchall name for the cryptocurrency platform, the transactional protocol for which is actually XRP.</p>
+                  <a href="#">Read More</a>
+              </div>
+            </div>
+            <div class="item">
+              <div class="coin-box">
+                <div class="back-profile" style="background-image:url('/images/back-bg.jpg')";></div>
+                  <div class="coin-logo">
+                    <img src="/images/coin-3.png" alt="">
+                  </div>
+                <h2>ZCash</h2>
+                <p>If Bitcoin can be compared to http for money, then Zcash is https.</p>
+                  <a href="#">Read More</a>
+              </div>
+            </div>
+          </div>
+      </div>
     </div>
   </div>
 </div>
-</div>
-</div>
-<!-- End Copyright -->
-<!-- Back to Top -->
-<a href="#" id="back-to-top" title="Back to top"><img src="/images/top-arrow.png" alt=""></a>
-<!-- js file  -->
-<script type="text/javascript">
-  particlesJS('particles-js',
 
-    {
-    "particles": {
-    "number": {
-    "value": 80,
-    "density": {
-    "enable": true,
-    "value_area": 800
+<div class="news-box pad-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="title">
+          <h3>Latest News</h3>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <% @news_feeds.each_with_index do |news,index| %>
+          <div class="row mr-20 <%= index%2 == 0 ? '' : 'right-side' %>">
+            <div class="col-xs-12 col-sm-6">
+              <div class="boder-box">
+                <div class="news-img" style="background-image:url('<%= news[1]['image'].present? ? news[1]['image'] : '/images/news.jpg' %>');">
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <div class="description">
+                <h4 style="font-size: 25px;"><%= news[1]['title'].html_safe %></h4>
+                <div class="news-description"><%= news[1]['description'].html_safe %></div>
+                <a href="#">Read More</a>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="token pad-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="title">
+          <h3>Currently On Going Token Sell</h3>
+        </div>
+      </div>
+      <div class="col-xs-12">
+         <div id="owl-demo3">
+            <div class="item">
+              <div class="coin-box">
+                <div class="back-profile" style="background-image:url('/images/1.jpg')";></div>
+                  <div class="coin-logo">
+                    <img src="/images/4new.png" alt="">
+                  </div>
+                <h2>4New</h2>
+                <h5>$85</h5>
+                <a href="#">Buy Now</a>
+              </div>
+            </div>
+            <div class="item">
+              <div class="coin-box">
+                <div class="back-profile" style="background-image:url('/images/2.jpg')";></div>
+                  <div class="coin-logo">
+                    <img src="/images/SRCoin.jpg" alt="">
+                  </div>
+                <h2>SR Coin</h2>
+                <h5>$85</h5>
+                <a href="#">Buy Now</a>
+              </div>
+            </div>
+            <div class="item">
+              <div class="coin-box">
+                <div class="back-profile" style="background-image:url('/images/3.jpg')";></div>
+                  <div class="coin-logo">
+                    <img src="/images/patron.png" alt="">
+                  </div>
+                <h2>Parton</h2>
+                <h5>$85</h5>
+                <a href="#">Buy Now</a>
+              </div>
+            </div>
+            <div class="item">
+              <div class="coin-box">
+                <div class="back-profile" style="background-image:url('/images/back-bg.jpg')";></div>
+                  <div class="coin-logo">
+                    <img src="/images/coin.png" alt="">
+                  </div>
+                <h2>Bit Coin</h2>
+                <h5>$85</h5>
+                <a href="#">Buy Now</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="newsletter pad-block flex-box">
+  <div class="container">
+    <div class="col-xs-12">
+      <div class="inside"> 
+        <h2>Subscribes For</h2>
+        <h4>Our Newsletter</h4>
+      </div>
+      <form>
+        <div class="newsletter-tag">
+          <div class="form-group">
+            <input type="email" name="" class="form-control">
+          </div>
+          <button type="submit" class="btn btn default">
+            <img src="/images/pin.png" alt="">
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 1){  
+      $('header').addClass("sticky");
+      $('body').addClass("sticky-b");
     }
-    },
-    "color": {
-    "value": "#ffffff"
-    },
-    "shape": {
-    "type": "circle",
-    "stroke": {
-    "width": 0,
-    "color": "#000000"
-    },
-    "polygon": {
-    "nb_sides": 5
-    },
-    "image": {
-    "src": "img/github.svg",
-    "width": 100,
-    "height": 100
+    else{
+      $('header').removeClass("sticky");
+      $('body').removeClass("sticky-b");
     }
-    },
-    "opacity": {
-    "value": 0.5,
-    "random": false,
-    "anim": {
-    "enable": false,
-    "speed": 1,
-    "opacity_min": 0.1,
-    "sync": false
-    }
-    },
-    "size": {
-    "value": 5,
-    "random": true,
-    "anim": {
-    "enable": false,
-    "speed": 40,
-    "size_min": 0.1,
-    "sync": false
-    }
-    },
-    "line_linked": {
-    "enable": true,
-    "distance": 150,
-    "color": "#ffffff",
-    "opacity": 0.4,
-    "width": 1
-    },
-    "move": {
-    "enable": true,
-    "speed": 6,
-    "direction": "none",
-    "random": false,
-    "straight": false,
-    "out_mode": "out",
-    "attract": {
-    "enable": false,
-    "rotateX": 600,
-    "rotateY": 1200
-    }
-    }
-    },
-    "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-    "onhover": {
-    "enable": true,
-    "mode": "repulse"
-    },
-    "onclick": {
-    "enable": true,
-    "mode": "push"
-    },
-    "resize": true
-    },
-    "modes": {
-    "grab": {
-    "distance": 400,
-    "line_linked": {
-    "opacity": 1
-    }
-    },
-    "bubble": {
-    "distance": 400,
-    "size": 40,
-    "duration": 2,
-    "opacity": 8,
-    "speed": 3
-    },
-    "repulse": {
-    "distance": 200
-    },
-    "push": {
-    "particles_nb": 4
-    },
-    "remove": {
-    "particles_nb": 2
-    }
-    }
-    },
-    "retina_detect": true,
-    "config_demo": {
-    "hide_card": false,
-    "background_color": "#b61924",
-    "background_image": "",
-    "background_position": "50% 50%",
-    "background_repeat": "no-repeat",
-    "background_size": "cover"
-    }
-    }
-  );
-  jQuery(document).ready(function($) {
-  $(".news-description").find('img').remove();
+  });
+
+  $(document).ready(function() {
+      $(".news-description").find('img').remove();
+      $("#owl").owlCarousel({
+          autoPlay: 2000, //Set AutoPlay to 3 seconds
+          items : 1,
+      });
+
+       $("#owl-demo2").owlCarousel({
+          autoPlay: 4500, //Set AutoPlay to 3 seconds
+          items : 3,
+          itemsDesktop : [1199,2],
+          itemsDesktopSmall : [992,2],
+          itemsTablet : [767,1],
+          itemsMobile:[320,1]
+      });
+       $("#owl-demo3").owlCarousel({
+          autoPlay: 4500, //Set AutoPlay to 3 seconds
+          items : 3,
+          itemsDesktop : [1199,2],
+          itemsDesktopSmall : [992,2],
+          itemsTablet : [767,1],
+          itemsMobile:[320,1]
+      });
+
+      $( window ).load(function(){
+        $(".fix-img").each(function(){
+          
+        var img = $(this);
+        var image_heightA = img.height();
+        var image_widthA = img.width();
+        var parent_image_widthA = img.parent().width();
+        var parent_image_heightA = img.parent().height();
+        //if(width <= height)
+        
+        if(image_heightA > parent_image_heightA && image_widthA > parent_image_widthA){
+          
+          img.css('width',parent_image_widthA + 'px');
+          var tem_image_heightA = img.height();
+          
+          if(tem_image_heightA > parent_image_heightA){
+            img.css('width','100%');
+          }
+          else{
+            img.css('width','auto');
+            img.css('height','100%');
+          }
+        }
+        else{
+          img.css('width',parent_image_widthA + 'px');
+          var tem_image_heightA = img.height();
+          
+          if(tem_image_heightA > parent_image_heightA){
+            img.css('width','100%');
+          }
+          else{
+            img.css('width','auto');
+            img.css('height','100%');
+          }
+        } 
+        });
+      });
   });
 </script>
-</body>
-</html>

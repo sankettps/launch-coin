@@ -1,17 +1,26 @@
-<% if launcher_signed_in? %>
-	<%= link_to "Sign out",destroy_launcher_session_path,method: :delete %>
-	<%= link_to "Current ICO",coin_icos_path %>
-<% else %>
-	<%= link_to "Sign In", new_launcher_session_path %>|
-	<%= link_to "Sign Up", new_launcher_registration_path %>
-	<%= link_to "Sign in with Google", launcher_google_oauth2_omniauth_authorize_path %>
-	<%= link_to "Sign in with Facebook", launcher_facebook_omniauth_authorize_path %>
-<% end %>
-
-<!-- https://www.ico-list.com/ -->
- <!-- https://ico.bitcomo.com -->
- <!-- https://tokenmarket.net/ico-calendar/upcoming -->
- <!-- http://crypterio.stylemixthemes.com/ico/ -->
- <!-- https://www.icoalert.com -->
- <!-- https://www.listico.io -->
- <!-- https://www.icohotlist.com -->
+<header class="header">
+  <nav class="navbar navbar-default">
+    <div class="container"> 
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <a class="navbar-brand" href="/"><img src="/images/logo.png" alt="" /></a></div>
+      
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li class=""><a href="#<%#= coin_icos_path %>">All Ico</a></li>
+          <% if launcher_signed_in? %>
+            <li><a href="#">My Profile</a></li>
+            <li><a href="#">Sign Out</a></li>
+          <% else %>
+            <li><a href="#">Sign In</a></li>
+            <li><a href="#">Sign Up</a></li>
+          <% end %>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse --> 
+    </div>
+    <!-- /.container-fluid --> 
+  </nav>
+</header>
