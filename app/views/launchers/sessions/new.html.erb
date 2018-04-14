@@ -1,57 +1,31 @@
-<!-- Login  -->
-<%= render :partial => "/layouts/shared/navbar" %>
-<div id="home" class="bg-inner low-back-gradient-inner">
-  <div class="text-con-inner low-back-up">
-    <div class="container">
-      <div class="row">
-        <div class="lead col-lg-12 col-xm-12 text-center">
-          <h1><span class="top-heading-inner">Login</span> </h1>
-          <div class="list-o-i white">
-            <div class="pagenation_links"><a href="/" class="yellow">Home</a><i> </i> / Pages / Login</div>
-          </div>
+<div class="fix-view-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="login-view">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name),html: {id: 'login'}) do |f| %>
+            <div class="input">
+                <%= f.email_field :email, autocomplete: "email",class: 'input-field'%>
+                <label class="input-label input-label-juro">Email</label>
+            </div>
+             <div class="input">
+                <%= f.password_field :password, autocomplete: "off",class: 'input-field' %>
+                <label class="input-label input-label-juro">Password</label>
+            </div>
+            <div class="submit-btn">
+              <button type="submit" class="submit-btn">SIGN IN</button>
+              <%#= f.submit "SIGN IN",class: "submit-btn" %>
+            </div>
+            <div class="social">
+              <a href="<%= launcher_facebook_omniauth_authorize_path %>" class="facebook">Facebook</a>
+              <a href="<%= launcher_google_oauth2_omniauth_authorize_path %>" class="google">Google</a>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
-<div class="login_page login_solid_bg">
-  <div class="container">
-    <div class="log_in_logo text-center"> <img src="images/logo.png" alt=""> </div>
-    <div class="log_in_box">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name),html: {class: 'login'}) do |f| %>
-      <!-- <form class="login"> -->
-        <div class="login_title">
-          <h2>LOGIN</h2>
-        </div>
-        <div class="form-group">
-          <!-- <input type="text" class="form-control" placeholder="Login ID"> -->
-          <%= f.email_field :email, autocomplete: "email",class: 'form-control', placeholder:"Email ID"%>
-        </div>
-        <div class="form-group">
-          <!-- <input type="password"  class="form-control" placeholder="Password"> -->
-          <%= f.password_field :password, autocomplete: "off",class: 'form-control',placeholder:"Password" %>
-        </div>
-        <div class="form-group">
-          <%= f.submit "LOG IN",class: "btn btn-login" %>
-          <!-- <button class="btn btn-login">LOG IN</button> -->
-        </div>
-        <div class="login_social clearfix">
-          <ul class="clearfix">
-            <li><a class="fb_login" href="<%= launcher_facebook_omniauth_authorize_path %>">FACEBOOK</a></li>
-            <li><a class="google_login" href="<%= launcher_google_oauth2_omniauth_authorize_path %>">GOOGLE</a></li>
-          </ul>
-        </div>
-        <div class="form-group check_login">
-          <%= f.check_box :remember_me,id: "checkbox1" %>
-          <%= f.label :remember_me %>
-          <!-- <input type="checkbox" value="remember-me" id="checkbox1">
-          <label for="checkbox1">Remember me</label> -->
-          <a href="<%= new_launcher_password_path %>" class="pull-right"> Forgot Password?</a> </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-<!-- End Lgin  --> 
 
 
 <!-- <h2>Log in</h2>

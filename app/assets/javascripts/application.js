@@ -17,3 +17,5 @@
 //= require jquery.raty
 //= require moment
 //= require bootstrap-datetimepicker
+//= require particles
+//= require classie
