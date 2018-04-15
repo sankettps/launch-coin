@@ -9,13 +9,15 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li class=""><a href="#<%#= coin_icos_path %>">All Ico</a></li>
+          <li class="<%= request.path == coin_icos_path ? 'active' :'' %>">
+            <a href="<%= coin_icos_path %>">All Ico</a>
+          </li>
           <% if launcher_signed_in? %>
             <li><a href="#">My Profile</a></li>
             <li><%= link_to "Sign out",destroy_launcher_session_path,method: :delete %></li>
           <% else %>
-            <li><a href="<%= new_launcher_session_path %>">Sign In</a></li>
-            <li><a href="<%= new_launcher_registration_path %>">Sign Up</a></li>
+            <li class="<%= request.path == new_launcher_session_path ? 'active' :'' %>"><a href="<%= new_launcher_session_path %>">Sign In</a></li>
+            <li class="<%= request.path == new_launcher_registration_path ? 'active' :'' %>"><a href="<%= new_launcher_registration_path %>">Sign Up</a></li>
           <% end %>
         </ul>
       </div>

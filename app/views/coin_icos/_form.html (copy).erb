@@ -1,0 +1,275 @@
+  <div class="row">
+  <div class="col-xs-12 frm-wrap">
+    <!-- <form enctype="multipart/form-data" action="/coin_icos" accept-charset="UTF-8" method="post" 
+    id="msform"> -->
+    <%= form_with(model: coin_ico, local: true,html: { multipart: true ,id: 'msform'}) do |form| %>
+      <!-- progressbar -->
+      <ul id="progressbar">
+        <li class="active">ICO Details</li>
+        <li>Web & Social Info</li>
+        <li>ICO profile info</li>
+        <li>Token Sale Duration</li>
+      </ul>
+      <!-- fieldsets -->
+      <fieldset>
+        <h2 class="fs-title">Create your account</h2>
+        <h3 class="fs-subtitle">This is step 1</h3>
+        <div class="frm-line">
+          <div class="frm-half">
+            <div class="form-group">
+              <label>* Ico Name</label>
+              <%= form.hidden_field :launcher_id, id: :coin_ico_launcher_id,value: current_launcher.try(:id) %>
+              <input type="text" class="form-control" placeholder="Ico Name" name="coin_ico[coin_name]">
+            </div>
+          </div>
+          <div class="frm-half">
+            <div class="addon-view">
+              <label>* Rate</label>
+              <div class="addon-view">
+                <span class="addon-tag "><i class="fa fa-dollar "></i></span>
+                <input type="text" class="form-control" placeholder="Rate" name="coin_ico[rate]">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="frm-line">
+          <div class="frm-half">
+            <div class="form-group">
+              <label>* Total Supply</label>
+              <input type="text" class="form-control" placeholder="Total Supply" name="coin_ico[total_supply]">
+            </div>
+          </div>
+          <div class="frm-half">
+            <div class="form-group">
+              <label>* Token Symbol </label>
+              <input type="text" class="form-control" placeholder="Token Symbol" name="coin_ico[token_symbol]">
+            </div>
+          </div>
+        </div>
+        <input type="button" name="next" class="next action-button" value="Next" />
+      </fieldset>
+      
+      <fieldset>
+        <h2 class="fs-title">Social Profiles</h2>
+        <h3 class="fs-subtitle">Your presence on the social network</h3>
+        <div class="frm-line">
+          <div class="frm-full">
+            <div class="form-group">
+              <label>* Website</label>
+              <div class="addon-view">
+                <span class="addon-tag "><i class="fa fa-globe"></i></span>
+                <input type="text" class="form-control" placeholder="Enter your website" name="coin_ico[website]">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="frm-line">
+          <div class="frm-full">
+            <div class="form-group">
+              <label>* Description</label>
+              <textarea class="form-control" name="coin_ico[description]"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="frm-line">
+          <div class="frm-full">
+            <div class="form-group">
+              <label>* YouTube video link</label>
+              <div class="addon-view">
+                <span class="addon-tag "><i class="fa fa-youtube-play"></i></span>
+                <input type="text" class="form-control" placeholder="Enter video link" name="coin_ico[presentation_link]">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="frm-line">
+          <div class="frm-third">
+            <div class="addon-view">
+              <label>* Facebook Link</label>
+              <div class="addon-view">
+                <span class="addon-tag "><i class="fa fa-facebook "></i></span>
+                <input type="text" class="form-control" placeholder="Enter link" name="coin_ico[facebook_link]">
+              </div>
+            </div>
+          </div>
+          <div class="frm-third">
+            <div class="addon-view">
+              <label>* Twitter Link</label>
+              <div class="addon-view">
+                <span class="addon-tag "><i class="fa fa-twitter "></i></span>
+                <input type="text" class="form-control" placeholder="Enter link" name="coin_ico[twitter_link]">
+              </div>
+            </div>
+          </div>
+          <div class="frm-third">
+            <div class="addon-view">
+              <label>* Telegram Link</label>
+              <div class="addon-view">
+                <span class="addon-tag "><i class="fa  fa-paper-plane"></i></span>
+                <input type="text" class="form-control" placeholder="Enter link" name="coin_ico[telegram_link]">
+              </div>
+            </div>
+          </div>
+        </div>
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <input type="button" name="next" class="next action-button" value="Next" />
+      </fieldset>
+      <fieldset>
+        <h2 class="fs-title">Social Profiles</h2>
+        <h3 class="fs-subtitle">Your presence on the social network</h3>
+        <div class="frm-line">
+          <label>* Upload Images</label>
+          <div class="clearfix"></div>
+          <div class="frm-third">
+            <div class="upload-view">
+              Coin Logo
+              <input type="file" name="coin_ico[coin_logo]" accept="image/x-png,image/gif,image/jpeg">
+            </div>
+          </div>
+          <div class="frm-third">
+            <div class="upload-view">
+              Cover Photo
+              <input type="file" name="coin_ico[cover_photo]" accept="image/x-png,image/gif,image/jpeg">
+            </div>
+          </div>
+          <div class="frm-third">
+            <div class="upload-view">
+              White Paper
+              <input type="file" name="coin_ico[white_paper]" accept="application/pdf">
+            </div>
+          </div>
+        </div>
+        <div class="frm-line">
+          <div class="frm-full">
+            <div class="form-group">
+              <label>* Country</label>
+              <select class="form-control" name="coin_ico[country]">
+                <option>United State</option>
+                <option>United Kingdom</option>
+                <option>Canada</option>
+                <option>Afrika</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="frm-line">
+          <div class="frm-full">
+            <label>* Accepts</label>
+            <select class="selectpicker" multiple name="coin_ico[accepts][]">
+              <option>Mustard</option>
+              <option>Ketchup</option>
+              <option>Relish</option>
+              <option>Mustard</option>
+              <option>Ketchup</option>
+              <option>Relish</option>
+              <option>Mustard</option>
+              <option>Ketchup</option>
+              <option>Relish</option>
+            </select>
+          </div>
+        </div>
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <input type="button" name="next" class="next action-button" value="Next" />
+      </fieldset>
+      <fieldset>
+        <h2 class="fs-title">Personal Details</h2>
+        <h3 class="fs-subtitle">We will never sell it</h3>
+        
+        <div class="frm-line">
+          <div class="frm-full">
+            <div class="form-group">
+              <label>* No Of Round</label>
+              <select class="form-control" id="noOfRound">
+                <option value="1">Round 1</option>
+                <option value="2">Round 2</option>
+                <option value="3">Round 3</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="in-title">Round</div>
+        <div class="frm-line round1 release-round">
+          <div class="frm-half">
+            <label>* Start Date </label>
+            <div class="clearfix"></div>
+            <div class="form-group">
+              <div class="input-group date">
+                <input type="text" class="form-control" name="coin_ico[rounds][1][start_date]" id="startdatepicker1">
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="frm-half">
+            <label>* End Date </label>
+            <div class="clearfix"></div>
+            <div class="form-group">
+              <div class="input-group date">
+                <input type="text" class="form-control" name="coin_ico[rounds][1][end_date]" id="enddatepicker1">
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="frm-line round2 release-round" style="display: none;">
+          <div class="frm-half">
+            <label>* Start Date </label>
+            <div class="clearfix"></div>
+            <div class="form-group">
+              <div class="input-group date">
+                <input type="text" class="form-control" name="coin_ico[rounds][2][start_date]" id="startdatepicker2" disabled>
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="frm-half">
+            <label>* End Date </label>
+            <div class="clearfix"></div>
+            <div class="form-group">
+              <div class="input-group date">
+                <input type="text" class="form-control" name="coin_ico[rounds][2][end_date]" id="enddatepicker2" disabled>
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+         <div class="frm-line round3 release-round" style="display: none;">
+          <div class="frm-half">
+            <label>* Start Date </label>
+            <div class="clearfix"></div>
+            <div class="form-group">
+              <div class="input-group date">
+                <input type="text" class="form-control" name="coin_ico[rounds][3][start_date]" id="startdatepicker3" disabled>
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="frm-half">
+            <label>* End Date </label>
+            <div class="clearfix"></div>
+            <div class="form-group">
+              <div class="input-group date">
+                <input type="text" class="form-control" name="coin_ico[rounds][3][end_date]" id="enddatepicker3" disabled>
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <input type="button" name="previous" class="previous action-button" value="Previous">
+        <input type="submit" name="submit" class="submit action-button" value="Submit">
+      </fieldset>
+    <!-- </form> -->
+    <% end %>
+  </div>
+</div>

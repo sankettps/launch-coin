@@ -12,7 +12,8 @@
  *
  *= require bootstrap.min
  *= require owl.carousel.min
- *= require style
  *= require bootstrap-datetimepicker
+ *= require bootstrap-select.min
+ *= require style
  *= require_self
  */

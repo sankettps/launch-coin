@@ -1,44 +1,50 @@
-<!-- Header -->
-<%= render :partial => "/layouts/shared/navbar" %>
-<div id="home" class="bg-inner low-back-gradient-inner">
-  <div class="text-con-inner low-back-up">
-    <div class="container">
-      <div class="row">
-        <div class="lead col-lg-12 col-xm-12 text-center">
-          <h1><span class="top-heading-inner">ALL ICOS</span> </h1>
-          <div class="list-o-i white">
-            <!-- <div class="pagenation_links"><a href="#" class="yellow">Home</a><i> </i> / Pages / Login</div> -->
-          </div>
-        </div>
+<div class="coin-list">
+  <div class="fix-view">
+    <div class="owl-carousel owl-theme" id="owl">
+      <div class="item">
+        <img src="/images/banner-3.png" class="fix-img" />
       </div>
     </div>
+     <div id="particles-js"></div>
+    <div class="banner flex-box" >
+      <h1>Start Your Dream </h1>
+      <p>Cryptotoken sale  with Icototes.</p>
+      <a href="<%= new_coin_ico_path %>">Upload Ico</a>
+    </div>
   </div>
-</div>
-<!-- ENd Header --> 
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="coin">
-        <ul>
-          <% @coin_icos.each do |coin_ico| %>
-            <li>
-              <span class="coin-img">
-                <img src="<%= coin_ico.coin_logo.url %>" alt="">
-              </span>
-              <span class="coin-deatisl">
-                <h2><%= coin_ico.coin_name %></h2>
-                <ul class="coin-rate" data-rating="<%= coin_ico.average_rating %>">
-                  <li>Item Rating : </li>
-                  <div id="rating" style="display: inline-block;"></div>
-                  <li class="comments"><a href="#"><%= coin_ico.comments.count %> comments</a> </li>
-                </ul>
-                <p><%= truncate(coin_ico.description, length: 150) %></p>
-              </span>
-              <span><%= link_to 'View more', coin_ico,class: "theme-btn btn-style-pinks-nav" %></span>
-            </li>
-          <% end %>
-        </ul>
+  <div class="coin-list pad-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="title">
+          <h3>Coins Listings</h3>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="coin">
+          <ul>
+            <% @coin_icos.each do |coin_ico| %>
+              <li>
+                <span class="coin-img">
+                  <div class="outerCircle"></div>
+                  <div class="innerCircle"></div>
+                  <img src="<%= coin_ico.coin_logo.url %>" alt="">
+                </span>
+                <span class="coin-deatisl">
+                  <h2><%= coin_ico.coin_name %></h2>
+                  <ul class="coin-rate">
+                    <li>Item Rating : </li>
+                    <div id="rating" style="display: inline-block;"></div>
+                    <li class="comments"><a href="#"><%= coin_ico.comments.count %> comments</a> </li>
+                  </ul>
+                  <p><%= truncate(coin_ico.description, length: 150) %></p>
+                </span>
+                <span><%= link_to 'View more', '#',class: "theme-btn" %></span>
+                <!-- <span><%#= link_to 'View more', coin_ico,class: "theme-btn" %></span> -->
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -50,6 +56,10 @@
       score: $(this).data('coin-rate'),
       path: '/images'
     });
+  });
+  $("#owl").owlCarousel({
+    autoPlay: 2000, //Set AutoPlay to 3 seconds
+    items : 1,
   });
 </script>
 
