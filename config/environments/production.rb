@@ -85,11 +85,12 @@ Rails.application.configure do
     password:       'ICOtotes!@#123',
     domain:         'icototes.com',
     address:       'smtp.sendgrid.net',
-    port:          '587',
+    port:          '465',
     authentication: :plain,
     enable_starttls_auto: true
   }
-
+#   apikey
+# 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
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
