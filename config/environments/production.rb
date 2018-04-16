@@ -83,7 +83,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     user_name:      'icototes',
     password:       'ICOtotes!@#123',
-    domain:         'localhost:3000',
+    domain:         'icototes.com',
     address:       'smtp.sendgrid.net',
     port:          '587',
     authentication: :plain,
