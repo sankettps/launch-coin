@@ -181,82 +181,70 @@
 </div>
 
 <script>
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 1){  
-      $('header').addClass("sticky");
-      $('body').addClass("sticky-b");
-    }
-    else{
-      $('header').removeClass("sticky");
-      $('body').removeClass("sticky-b");
-    }
-  });
 
   $(document).ready(function() {
-      $(".news-description").find('img').remove();
-      $("#owl").owlCarousel({
-          autoPlay: 2000, //Set AutoPlay to 3 seconds
-          items : 1,
-      });
+    $(".news-description").find('img').remove();
+    $("#owl").owlCarousel({
+        autoPlay: 2000, //Set AutoPlay to 3 seconds
+        items : 1,
+    });
+    $("#owl-demo2").owlCarousel({
+      autoPlay: 4500, //Set AutoPlay to 3 seconds
+      items : 3,
+      itemsDesktop : [1199,2],
+      itemsDesktopSmall : [992,2],
+      itemsTablet : [767,1],
+      itemsMobile:[320,1]
+    });
+    $("#owl-demo3").owlCarousel({
+      autoPlay: 4500, //Set AutoPlay to 3 seconds
+      items : 3,
+      itemsDesktop : [1199,2],
+      itemsDesktopSmall : [992,2],
+      itemsTablet : [767,1],
+      itemsMobile:[320,1]
+    });
 
-       $("#owl-demo2").owlCarousel({
-          autoPlay: 4500, //Set AutoPlay to 3 seconds
-          items : 3,
-          itemsDesktop : [1199,2],
-          itemsDesktopSmall : [992,2],
-          itemsTablet : [767,1],
-          itemsMobile:[320,1]
-      });
-       $("#owl-demo3").owlCarousel({
-          autoPlay: 4500, //Set AutoPlay to 3 seconds
-          items : 3,
-          itemsDesktop : [1199,2],
-          itemsDesktopSmall : [992,2],
-          itemsTablet : [767,1],
-          itemsMobile:[320,1]
-      });
-
-      $( window ).load(function(){
-        $(".fix-img").each(function(){
-          
-        var img = $(this);
-        var image_heightA = img.height();
-        var image_widthA = img.width();
-        var parent_image_widthA = img.parent().width();
-        var parent_image_heightA = img.parent().height();
-        //if(width <= height)
+    $( window ).load(function(){
+      $(".fix-img").each(function(){
         
-        if(image_heightA > parent_image_heightA && image_widthA > parent_image_widthA){
-          
-          img.css('width',parent_image_widthA + 'px');
-          var tem_image_heightA = img.height();
-          
-          if(tem_image_heightA > parent_image_heightA){
-            img.css('width','100%');
-          }
-          else{
-            img.css('width','auto');
-            img.css('height','100%');
-          }
+      var img = $(this);
+      var image_heightA = img.height();
+      var image_widthA = img.width();
+      var parent_image_widthA = img.parent().width();
+      var parent_image_heightA = img.parent().height();
+      //if(width <= height)
+      
+      if(image_heightA > parent_image_heightA && image_widthA > parent_image_widthA){
+        
+        img.css('width',parent_image_widthA + 'px');
+        var tem_image_heightA = img.height();
+        
+        if(tem_image_heightA > parent_image_heightA){
+          img.css('width','100%');
         }
         else{
-          img.css('width',parent_image_widthA + 'px');
-          var tem_image_heightA = img.height();
-          
-          if(tem_image_heightA > parent_image_heightA){
-            img.css('width','100%');
-          }
-          else{
-            img.css('width','auto');
-            img.css('height','100%');
-          }
-        } 
-        });
+          img.css('width','auto');
+          img.css('height','100%');
+        }
+      }
+      else{
+        img.css('width',parent_image_widthA + 'px');
+        var tem_image_heightA = img.height();
+        
+        if(tem_image_heightA > parent_image_heightA){
+          img.css('width','100%');
+        }
+        else{
+          img.css('width','auto');
+          img.css('height','100%');
+        }
+      } 
       });
+    });
   });
     
   particlesJS('particles-js',
-  
     {
       "particles": {
         "number": {
@@ -373,6 +361,5 @@
         "background_size": "cover"
       }
     }
-
   );
 </script>

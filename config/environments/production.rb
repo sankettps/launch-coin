@@ -81,7 +81,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'https://www.icototes.com' }
 
   config.action_mailer.smtp_settings = {
-    user_name:      'icototes',
+    user_name:      'icototes001',
     password:       'ICOtotes!@#123',
     domain:         'icototes.com',
     address:       'smtp.sendgrid.net',
