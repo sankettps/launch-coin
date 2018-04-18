@@ -80,11 +80,20 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: 'https://www.icototes.com' }
 
+  # config.action_mailer.smtp_settings = {
+  #   user_name:      'icototes001',
+  #   password:       'ICOtotes!@#123',
+  #   domain:         'icototes.com',
+  #   address:       'smtp.sendgrid.net',
+  #   port:          '587',
+  #   authentication: :plain,
+  #   enable_starttls_auto: true
+  # }
   config.action_mailer.smtp_settings = {
-    user_name:      'icototes001',
+    user_name:      'icototes001@gmail.com',
     password:       'ICOtotes!@#123',
     domain:         'icototes.com',
-    address:       'smtp.sendgrid.net',
+    address:       'smtp.gmail.com',
     port:          '587',
     authentication: :plain,
     enable_starttls_auto: true
