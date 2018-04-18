@@ -12,6 +12,12 @@
                 <%= f.password_field :password, autocomplete: "off",class: 'input-field' %>
                 <label class="input-label input-label-juro">Password</label>
             </div>
+            <div class="box-full-view">
+              <div class="checkbox remember">
+                <label> <%= f.check_box :remember_me %><span></span>Remember me</label>
+              </div>
+              <a href="<%#= new_launcher_password_path %>#" class="link forgot">Forgot Password?</a>
+            </div>
             <div class="submit-btn">
               <button type="submit" class="submit-btn">SIGN IN</button>
               <%#= f.submit "SIGN IN",class: "submit-btn" %>

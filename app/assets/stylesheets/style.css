@@ -10,9 +10,9 @@ a, a:hover, a:focus{text-decoration:none;outline:none;}
 button, button:hover, button:focus, button:active, input, input:hover, input:focus{outline:none;}
 
 a{color:#8cc63e;}
-a:hover{color:#7db432;}
-a.link{color:#8cc63e;border-bottom:dotted 1px #8cc63e;}
-a.link:hover{color:#7db432;border-bottom:solid 1px #7db432;}
+a:hover{color:#00b7e4;}
+a.link{color:#00b7e4;border-bottom:dotted 1px #00b7e4;}
+a.link:hover{color:#00b7e4;border-bottom:solid 1px #00b7e4}
 
 ul{margin:0;padding:0;list-style:none;}
 ul.inline li{display:inline-block;}
@@ -426,7 +426,7 @@ ul.rates-view {margin-top: 20px;}
 .flip-clock-dot{background: #1d9a92;}
 
 
-.frames h2 {margin: 0;color: #fff;margin-bottom: 20px;font-size: 60px;}
+.frames h2 {margin: 0;color: #fff;margin-bottom: 20px;font-size: 60px;s}
 .frames p {font-size: 16px;font-weight: 100;line-height: 30px;}
 
 
@@ -484,7 +484,21 @@ ul.media-social li a:after {
     margin-top: 0;
     border-radius: 100%;
 }
+.remember{float:left;}
+.checkbox,.radio{margin:0;}
+.checkbox label,.radio label{margin:0;line-height:normal;}
 
+.checkbox label,.radio label{display:inline-block;vertical-align:0px;font-weight:400;cursor: pointer;padding-left:0;}
+.checkbox input[type=checkbox]{display:none;}
+.checkbox.remember {color: #fff;}
+.checkbox input[type=checkbox] + span {display:inline-block;width:18px;height:18px;vertical-align:-4px;border-radius:2px;border:solid 2px #00b7e4;margin:0 10px 0 0;position:relative;}
+.checkbox input[type=checkbox]:checked + span:after{content:'';position:absolute;top:3px;left:3px;height:8px;width:8px;background:#00b7e4;}
+.box-full-view{
+    float: left;width: 100%;margin-bottom: 20px;
+}
+a.link.forgot {
+    float: right;
+}
 
 
 @media(max-width: 1199px){
