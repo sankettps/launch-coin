@@ -1,0 +1,36 @@
+<div class="fix-view-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="login-view">
+        	<%#= devise_error_messages! %>
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post,id: 'forgotPassword' }) do |f| %>
+            <div class="input">
+                <%= f.email_field :email, autocomplete: "email",class: 'input-field'%>
+                <label class="input-label input-label-juro">Email</label>
+            </div>
+            <div class="submit-btn">
+              <button type="submit" class="submit-btn" style="width:100%;">Send me reset password instructions</button>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <h2>Forgot your password?</h2>
+
+<%#= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%#= devise_error_messages! %>
+
+  <div class="field">
+    <%#= f.label :email %><br />
+    <%#= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="actions">
+    <%#= f.submit "Send me reset password instructions" %>
+  </div>
+<%# end %>
+<%#= render "launchers/shared/links" %> -->

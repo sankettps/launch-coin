@@ -14,6 +14,7 @@ class Launcher < ApplicationRecord
 	  unless launcher
 	    password = Devise.friendly_token[0,20]
 	    launcher = Launcher.create(email: data["email"],password: password, password_confirmation: password,first_name: data["first_name"],last_name: data["last_name"],provider: access_token.try(:provider),uid: access_token.try(:uid))
+	    launcher.skip_confirmation!
 	  end
 	  launcher
 	end
