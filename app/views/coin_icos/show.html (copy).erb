@@ -13,8 +13,7 @@
               <img src="<%= @coin_ico.coin_logo.url %>">
             </div>
             <h2><%= @coin_ico.coin_name %></h2>
-            <div id="launcher_star" class="rates-view"></div>
-            <!-- <div id="star" class="rates-view"></div> -->
+            <div id="star"></div>
             <!-- <ul class="rates-view">
               <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
               <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
@@ -59,9 +58,9 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <div class="clock-set">
+        <!-- <div class="clock-set">
           <div class="clock"></div>
-        </div>
+        </div> -->
       </div>
       <div class="col-xs-12">
         <div class="desc-view">
@@ -76,7 +75,7 @@
             </div>
             <div class="col-sm-6 col-xs-12">
                <div class="video">
-                 <iframe width="100%" height="320" src="<%= @coin_ico.presentation_link %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                 <iframe width="100%" height="320" src="https://<%= @coin_ico.presentation_link %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                </div>
             </div>
           </div>
@@ -85,25 +84,25 @@
       <div class="col-xs-12">
         <ul class="linking">
           <li>
-            <a href="<%= formatted_website(@coin_ico.website)  %>" rel=”alternate” target="_blank">Visit Website</a>
+            <a href="<%= @coin_ico.website %>">Visit Website</a>
           </li>
           <li>
-            <a href="<%= @coin_ico.white_paper.url %>" target="_blank">White Paper</a>
+            <a href="<%= @coin_ico.white_paper.url %>" target="_blanck">Download White Paper</a>
           </li>
         </ul>
          <ul class="media-social">
            <li>
-             <a href="<%= formatted_website(@coin_ico.facebook_link) %>" target="_blank">
+             <a href="#">
                <img src="/images/facebook.png">
              </a>
            </li>
            <li>
-             <a href="<%= formatted_website(@coin_ico.twitter_link) %>" target="_blank">
+             <a href="#">
                <img src="/images/twitter.png">
              </a>
            </li>
            <li>
-             <a href="<%= formatted_website(@coin_ico.telegram_link) %>" target="_blank">
+             <a href="#">
                <img src="/images/telegram.png">
              </a>
            </li>
@@ -113,11 +112,91 @@
         <div class="comment-box">
           
           <div class="post-comment">
-            <%= render 'comments/form', comment: @comment %>
+            <form>
+              <div class="form-group">
+                <textarea placeholder="Add your comments"></textarea>
+              </div>
+              <button type="submit" class="custom-btn">Post</button>
+             </form>
           </div>
          
           <ul>
-            <%= render @coin_ico.comments.order("created_at desc") %>
+            <li>
+              <div class="message-box">
+                <div class="user-icon">
+                  <img src="/images/coin-2.png">
+                </div>
+                <div class="user-review">
+                  <h6>A Google user</h6>
+                  <ul class="rates-view">
+                    <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+                    <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+                    <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+                    <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+                    <li><a href="#"><i class="fa fa-star"></i></a> </li>
+                  </ul>
+                  <div class="date"><i class="fa fa-calendar"></i> February 19, 2018</div>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="message-box">
+                <div class="user-icon">
+                  <img src="/images/coin-2.png">
+                </div>
+                <div class="user-review">
+                  <h6>A Google user</h6>
+                  <ul class="rates-view">
+                    <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+                    <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+                    <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+                    <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+                    <li><a href="#"><i class="fa fa-star"></i></a> </li>
+                  </ul>
+                  <div class="date"><i class="fa fa-calendar"></i> February 19, 2018</div>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="message-box">
+                <div class="user-icon">
+                  <img src="/images/coin-2.png">
+                </div>
+                <div class="user-review">
+                  <h6>A Google user</h6>
+                  <ul class="rates-view">
+                    <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+                    <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+                    <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+                    <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+                    <li><a href="#"><i class="fa fa-star"></i></a> </li>
+                  </ul>
+                  <div class="date"><i class="fa fa-calendar"></i> February 19, 2018</div>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="message-box">
+                <div class="user-icon">
+                  <img src="/images/coin-2.png">
+                </div>
+                <div class="user-review">
+                  <h6>A Google user</h6>
+                  <ul class="rates-view">
+                    <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+                    <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+                    <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+                    <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+                    <li><a href="#"><i class="fa fa-star"></i></a> </li>
+                  </ul>
+                  <div class="date"><i class="fa fa-calendar"></i> February 19, 2018</div>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -238,7 +317,7 @@
         clock.start();
 
     });
-  particlesJS('particles-js',
+     particlesJS('particles-js',
     {
       "particles": {
         "number": {
@@ -359,7 +438,7 @@
 </script>
 
 <!-- http://paweljaniak.co.za/2013/07/25/5-star-ratings-with-rails/ -->
-<!-- <p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Launcher:</strong>
@@ -393,14 +472,14 @@
 <div id="launcher_star"></div>
 <div>
   <h2>Comments</h2>
-  <%#= render @coin_ico.comments %>
+  <%= render @coin_ico.comments %>
   <hr>
   <h3>New Comment</h3>      
   <div class="row">
     <div class="col-xs-12">
-      <%#= render 'comments/form', comment: @comment %>
+      <%= render 'comments/form', comment: @comment %>
     </div>
   </div>
 </div>
 <%= link_to 'Edit', edit_coin_ico_path(@coin_ico) %> |
-<%= link_to 'Back', coin_icos_path %> -->
+<%= link_to 'Back', coin_icos_path %>

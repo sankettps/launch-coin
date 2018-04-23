@@ -17,12 +17,17 @@
     <%= form.hidden_field :coin_ico_id, id: :comment_coin_ico_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :comment_description %>
+  <!-- <div class="field">
+    <%#= form.label :description %>
+    <%#= form.text_area :description, id: :comment_description %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%#= form.submit %>
+  </div> -->
+  <div class="form-group">
+    <%= form.text_area :description, id: :comment_description,placeholder: "Add your comments" %>
+    <!-- <textarea placeholder="Add your comments"></textarea> -->
   </div>
+  <button type="submit" class="custom-btn">Post</button>
 <% end %>

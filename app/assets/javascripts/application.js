@@ -18,6 +18,7 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require particles
+//= require flipclock
 //= require bootstrap-select.min
 //= require classie
 //= require jquery.easing.min

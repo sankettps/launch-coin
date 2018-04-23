@@ -1,12 +1,34 @@
 <% if comment.id.present? %>
-	<div class="row">
+	<li>
+	  <div class="message-box">
+	    <div class="user-icon">
+	      <img src="/images/coin-2.png">
+	    </div>
+	    <div class="user-review">
+	      <h6><%= comment.launcher.name.titleize %></h6>
+	      <ul class="rates-view">
+	        <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+	        <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+	        <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+	        <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+	        <li><a href="#"><i class="fa fa-star"></i></a> </li>
+	      </ul>
+	      <div class="date"><i class="fa fa-calendar"></i> <%= comment.created_at.strftime("%B %d,%Y") %></div>
+	      <p><%= comment.description %></p>
+	    </div>
+	  </div>
+	</li>
+<% end %>
+
+<%# if comment.id.present? %>
+	<!-- <div class="row">
 		<div class="col-xs-12">
-			<%= comment.description %>
+			<%#= comment.description %>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-6 col-xs-offset-6">
-			<strong><%= comment.launcher.name %></strong>
+			<strong><%#= comment.launcher.name %></strong>
 		</div>
-	</div>
-<% end %>
+	</div> -->
+<%# end %>
