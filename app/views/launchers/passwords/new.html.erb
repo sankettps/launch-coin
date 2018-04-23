@@ -3,14 +3,23 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="login-view">
-        	<%#= devise_error_messages! %>
+          <%#= devise_error_messages! %>
+          <% if resource.errors.present? %>
+            <div class="alert alert-danger alert-dismissible">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          	  <%= resource.errors.full_messages.map { |msg| content_tag(:p, msg) }.join.html_safe %>
+            </div>
+          <% end %>
+          <div class="title">
+            <h3>Forgot Password</h3>
+          </div>
           <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post,id: 'forgotPassword' }) do |f| %>
             <div class="input">
                 <%= f.email_field :email, autocomplete: "email",class: 'input-field'%>
-                <label class="input-label input-label-juro">Email</label>
+                <label class="input-label input-label-juro">Enter your email id</label>
             </div>
             <div class="submit-btn">
-              <button type="submit" class="submit-btn" style="width:100%;">Send me reset password instructions</button>
+              <button type="submit" class="submit-btn">submit</button>
             </div>
           <% end %>
         </div>

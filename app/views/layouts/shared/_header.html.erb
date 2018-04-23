@@ -13,7 +13,7 @@
             <a href="<%= coin_icos_path %>">All Ico</a>
           </li>
           <% if launcher_signed_in? %>
-            <li><a href="#">My Profile</a></li>
+            <li><a href="<%= coin_icos_launcher_coin_icos_path %>">My Profile</a></li>
             <li><%= link_to "Sign out",destroy_launcher_session_path,method: :delete %></li>
           <% else %>
             <li class="<%= request.path == new_launcher_session_path ? 'active' :'' %>"><a href="<%= new_launcher_session_path %>">Sign In</a></li>

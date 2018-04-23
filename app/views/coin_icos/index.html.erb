@@ -32,7 +32,7 @@
                 </span>
                 <span class="coin-deatisl">
                   <h2><%= coin_ico.coin_name %></h2>
-                  <ul class="coin-rate">
+                  <ul class="coin-rate" data-rating="<%= coin_ico.average_rating %>">
                     <li>Item Rating : </li>
                     <div id="rating" style="display: inline-block;"></div>
                     <li class="comments"><a href="#"><%= coin_ico.comments.count %> comments</a> </li>
@@ -53,7 +53,7 @@
   $(".coin-rate").each(function(index, el) {
     $(this).find('#rating').raty({
       readOnly: true,
-      score: $(this).data('coin-rate'),
+      score: $(this).data('rating'),
       path: '/images'
     });
   });

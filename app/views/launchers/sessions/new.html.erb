@@ -3,6 +3,15 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="login-view">
+          <% if resource.errors.present? %>
+            <div class="alert alert-danger alert-dismissible">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <%= resource.errors.full_messages.map { |msg| content_tag(:p, msg) }.join.html_safe %>
+            </div>
+          <% end %>
+          <div class="title">
+            <h3>Sign in</h3>
+          </div>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name),html: {id: 'login'}) do |f| %>
             <div class="input">
                 <%= f.email_field :email, autocomplete: "email",class: 'input-field'%>

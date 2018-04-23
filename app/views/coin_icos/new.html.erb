@@ -49,137 +49,137 @@
 </script>
 
 <script type="text/javascript">
-//jQuery time
-var current_fs, next_fs, previous_fs; //fieldsets
-var left, opacity, scale; //fieldset properties which we will animate
-var animating; //flag to prevent quick multi-click glitches
+  //jQuery time
+  var current_fs, next_fs, previous_fs; //fieldsets
+  var left, opacity, scale; //fieldset properties which we will animate
+  var animating; //flag to prevent quick multi-click glitches
 
-$(".next").click(function(){
-  // console.log($("#firstStep :input").valid());
-  if(animating) return false;
-  animating = true;
-  
-  current_fs = $(this).parent();
-  next_fs = $(this).parent().next();
-  
-  //activate next step on progressbar using the index of next_fs
-  $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-  
-  //show the next fieldset
-  next_fs.show(); 
-  //hide the current fieldset with style
-  current_fs.animate({opacity: 0}, {
-    step: function(now, mx) {
-      //as the opacity of current_fs reduces to 0 - stored in "now"
-      //1. scale current_fs down to 80%
-      scale = 1 - (1 - now) * 0.2;
-      //2. bring next_fs from the right(50%)
-      left = (now * 50)+"%";
-      //3. increase opacity of next_fs to 1 as it moves in
-      opacity = 1 - now;
-      current_fs.css({'transform': 'scale('+scale+')'});
-      next_fs.css({'left': left, 'opacity': opacity});
-    }, 
-    duration: 800, 
-    complete: function(){
-      current_fs.hide();
-      animating = false;
-    }, 
-    //this comes from the custom easing plugin
-    easing: 'easeInOutBack'
+  $(".next").click(function(){
+    // console.log($("#firstStep :input").valid());
+    if(animating) return false;
+    animating = true;
+    
+    current_fs = $(this).parent();
+    next_fs = $(this).parent().next();
+    
+    //activate next step on progressbar using the index of next_fs
+    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+    
+    //show the next fieldset
+    next_fs.show(); 
+    //hide the current fieldset with style
+    current_fs.animate({opacity: 0}, {
+      step: function(now, mx) {
+        //as the opacity of current_fs reduces to 0 - stored in "now"
+        //1. scale current_fs down to 80%
+        scale = 1 - (1 - now) * 0.2;
+        //2. bring next_fs from the right(50%)
+        left = (now * 50)+"%";
+        //3. increase opacity of next_fs to 1 as it moves in
+        opacity = 1 - now;
+        current_fs.css({'transform': 'scale('+scale+')'});
+        next_fs.css({'left': left, 'opacity': opacity});
+      }, 
+      duration: 800, 
+      complete: function(){
+        current_fs.hide();
+        animating = false;
+      }, 
+      //this comes from the custom easing plugin
+      easing: 'easeInOutBack'
+    });
   });
-});
 
-$(".previous").click(function(){
-  if(animating) return false;
-  animating = true;
-  
-  current_fs = $(this).parent();
-  previous_fs = $(this).parent().prev();
-  
-  //de-activate current step on progressbar
-  $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-  
-  //show the previous fieldset
-  previous_fs.show(); 
-  //hide the current fieldset with style
-  current_fs.animate({opacity: 0}, {
-    step: function(now, mx) {
-      //as the opacity of current_fs reduces to 0 - stored in "now"
-      //1. scale previous_fs from 80% to 100%
-      scale = 0.8 + (1 - now) * 0.2;
-      //2. take current_fs to the right(50%) - from 0%
-      left = ((1-now) * 50)+"%";
-      //3. increase opacity of previous_fs to 1 as it moves in
-      opacity = 1 - now;
-      current_fs.css({'left': left});
-      previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
-    }, 
-    duration: 800, 
-    complete: function(){
-      current_fs.hide();
-      animating = false;
-    }, 
-    //this comes from the custom easing plugin
-    easing: 'easeInOutBack'
+  $(".previous").click(function(){
+    if(animating) return false;
+    animating = true;
+    
+    current_fs = $(this).parent();
+    previous_fs = $(this).parent().prev();
+    
+    //de-activate current step on progressbar
+    $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+    
+    //show the previous fieldset
+    previous_fs.show(); 
+    //hide the current fieldset with style
+    current_fs.animate({opacity: 0}, {
+      step: function(now, mx) {
+        //as the opacity of current_fs reduces to 0 - stored in "now"
+        //1. scale previous_fs from 80% to 100%
+        scale = 0.8 + (1 - now) * 0.2;
+        //2. take current_fs to the right(50%) - from 0%
+        left = ((1-now) * 50)+"%";
+        //3. increase opacity of previous_fs to 1 as it moves in
+        opacity = 1 - now;
+        current_fs.css({'left': left});
+        previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+      }, 
+      duration: 800, 
+      complete: function(){
+        current_fs.hide();
+        animating = false;
+      }, 
+      //this comes from the custom easing plugin
+      easing: 'easeInOutBack'
+    });
   });
-});
 
 
-$(function() {
-   $(".previous").click(function(){
-      return false;
-   });
+  $(function() {
+     $(".previous").click(function(){
+        return false;
+     });
 
-   $(".next").click(function(){
-      return false;
-   });
+     $(".next").click(function(){
+        return false;
+     });
 
-   $(".submit").click(function(){
-       return false;
-   });
-});
+     $(".submit").click(function(){
+         return false;
+     });
+  });
 
-$(document).on('change', '#noOfRound', function(event) {
-  $(".release-round").hide();
-  $(".release-round input").prop('disabled', true);
-  for (i = 1; i <= $(this).val(); i++) {
-    $(".round"+i).show();
-    console.log($(".round"+i).find('input'))
-    $(".round"+i).find('input').prop('disabled', false);
-  }
-});
-$(document).on('click', '.submit', function(event) {
-  alert("sank");
-  event.preventDefault();
-  /* Act on the event */
-});
-
-jQuery(document).ready(function($) {
-  var form = $('#msform');
-  // init validator obj and set the rules
-  form.validate({
-    errorElement: 'span', //default input error message container
-    errorClass: 'help-inline', // default input error message class
-    focusInvalid: false, // do not focus the last invalid input
-    ignore: "",
-    rules: {
-      "coin_ico[coin_name]": {required: true},
-      "coin_ico[rate]": {required: true},
-      "coin_ico[total_supply]": {required: true},
-      "coin_ico[website]": {required: true},
-      "coin_ico[country]": {required: true}
-    },
-
-    highlight: function (element) { // hightlight error inputs
-      $(element).closest('.input').addClass('error'); // set error class to the control group
-    },
-
-    unhighlight: function (element) { // revert the change dony by hightlight
-      $(element)
-        .closest('.input').removeClass('error'); // set error class to the control group
+  $(document).on('change', '#noOfRound', function(event) {
+    $(".release-round").hide();
+    $(".release-round input").prop('disabled', true);
+    for (i = 1; i <= $(this).val(); i++) {
+      $(".round"+i).show();
+      console.log($(".round"+i).find('input'))
+      $(".round"+i).find('input').prop('disabled', false);
     }
   });
-});
+  $(document).on('click', '.submit', function(event) {
+    alert("sank");
+    event.preventDefault();
+    /* Act on the event */
+  });
+
+  jQuery(document).ready(function($) {
+    var form = $('#msform');
+    // init validator obj and set the rules
+    form.validate({
+      errorElement: 'span', //default input error message container
+      errorClass: 'help-inline', // default input error message class
+      focusInvalid: false, // do not focus the last invalid input
+      ignore: "",
+      rules: {
+        "coin_ico[coin_name]": {required: true},
+        "coin_ico[rate]": {required: true},
+        "coin_ico[total_supply]": {required: true},
+        "coin_ico[website]": {required: true},
+        "coin_ico[country]": {required: true}
+      },
+
+      highlight: function (element) { // hightlight error inputs
+        $(element).closest('.input').addClass('error'); // set error class to the control group
+      },
+
+      unhighlight: function (element) { // revert the change dony by hightlight
+        $(element)
+          .closest('.input').removeClass('error'); // set error class to the control group
+      }
+    });
+  });
 
 </script>

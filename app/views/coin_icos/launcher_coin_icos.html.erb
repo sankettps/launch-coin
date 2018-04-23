@@ -1,22 +1,4 @@
-<!-- Header -->
-<%= render :partial => "/layouts/shared/navbar" %>
-<div id="home" class="bg-inner low-back-gradient-inner">
-  <div class="text-con-inner low-back-up">
-    <div class="container">
-      <div class="row">
-        <div class="lead col-lg-12 col-xm-12 text-center">
-          <h1><span class="top-heading-inner">MY ICOS</span> </h1>
-          <div class="list-o-i white">
-            <!-- <div class="pagenation_links"><a href="#" class="yellow">Home</a><i> </i> / Pages / Login</div> -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ENd Header --> 
-
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-xs-12">
       <div class="coin">
@@ -43,15 +25,189 @@
       </div>
     </div>
   </div>
+</div> -->
+<div class="coin-list">
+  <div class="fix-view">
+    <div class="owl-carousel owl-theme" id="owl">
+      <div class="item">
+        <img src="/images/banner-3.png" class="fix-img" />
+      </div>
+    </div>
+     <div id="particles-js"></div>
+    <div class="banner flex-box" >
+      <h1>Start Your Dream </h1>
+      <p>Cryptotoken sale  with Icototes.</p>
+      <a href="<%= new_coin_ico_path %>">Upload Ico</a>
+    </div>
+  </div>
+  <div class="coin-list pad-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="title">
+          <h3>MY ICOS</h3>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="coin">
+          <ul>
+            <% @coin_icos.each do |coin_ico| %>
+              <li>
+                <span class="coin-img">
+                  <div class="outerCircle"></div>
+                  <div class="innerCircle"></div>
+                  <img src="<%= coin_ico.coin_logo.url %>" alt="">
+                </span>
+                <span class="coin-deatisl">
+                  <h2><%= coin_ico.coin_name %></h2>
+                  <%= link_to 'Edit', edit_coin_ico_path(coin_ico), style:"color:#337ab7;" %>
+                  <ul class="coin-rate" data-rating="<%= coin_ico.average_rating %>">
+                    <li>Item Rating : </li>
+                    <div id="rating" style="display: inline-block;"></div>
+                    <li class="comments"><a href="#"><%= coin_ico.comments.count %> comments</a> </li>
+                  </ul>
+                  <p><%= truncate(coin_ico.description, length: 150) %></p>
+                </span>
+                <span><%= link_to 'View more', coin_ico,class: "theme-btn" %></span>
+                <!-- <span><%#= link_to 'View more', coin_ico,class: "theme-btn" %></span> -->
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <script type="text/javascript">
   $(".coin-rate").each(function(index, el) {
     $(this).find('#rating').raty({
       readOnly: true,
-      score: $(this).data('coin-rate'),
+      score: $(this).data('rating'),
       path: '/images'
     });
   });
+  $("#owl").owlCarousel({
+    autoPlay: 2000, //Set AutoPlay to 3 seconds
+    items : 1,
+  });
+  particlesJS('particles-js',
+    {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          },
+          "image": {
+            "src": "img/github.svg",
+            "width": 100,
+            "height": 100
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": {
+            "enable": false,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 5,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 400,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 200
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true,
+      "config_demo": {
+        "hide_card": false,
+        "background_color": "#b61924",
+        "background_image": "",
+        "background_position": "50% 50%",
+        "background_repeat": "no-repeat",
+        "background_size": "cover"
+      }
+    }
+  );
 </script>
 
 
