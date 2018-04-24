@@ -18,9 +18,9 @@ class CoinIco < ApplicationRecord
 			start_date = round["start_date"].to_datetime
 			end_date = round["end_date"].to_datetime
 			if start_date < Time.now && end_date > Time.now
-				return (end_date.to_i - Time.now.to_i).to_i
+				return end_date.to_i - Time.now.to_i
 			elsif start_date > Time.now
-				return (start_date.to_i -Time.now.to_i).to_i
+				return start_date.to_i - Time.now.to_i
 			end
 		end
 		return 0 
