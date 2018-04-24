@@ -75,7 +75,7 @@ class CoinIcosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_coin_ico
-      @coin_ico = current_launcher.coin_icos.find(params[:id])
+      @coin_ico = current_launcher.coin_icos.find_by(params[:id])
       redirect_to root_path unless @coin_ico.present?
     end
 
