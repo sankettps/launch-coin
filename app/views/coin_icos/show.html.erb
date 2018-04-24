@@ -13,8 +13,11 @@
               <img src="<%= @coin_ico.coin_logo.url %>">
             </div>
             <h2><%= @coin_ico.coin_name %></h2>
-            <div id="launcher_star" class="rates-view"></div>
-            <!-- <div id="star" class="rates-view"></div> -->
+            <% if launcher_signed_in? %>
+              <div id="launcher_star" class="rates-view"></div>
+            <% else %>
+              <div id="star" class="rates-view"></div>
+            <% end %>
             <!-- <ul class="rates-view">
               <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
               <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
@@ -113,7 +116,7 @@
         <div class="comment-box">
           
           <div class="post-comment">
-            <%= render 'comments/form', comment: @comment %>
+            <%= render 'comments/form', comment: @comment if current_launcher%>
           </div>
          
           <ul>
@@ -131,26 +134,28 @@
     score: <%= @coin_ico.average_rating %>,
     path: '/images'
   });
-  <% if @rating.score > 0 %>
-    $('#launcher_star').raty({
-      readOnly: true,
-      score: <%= @rating.score %>,
-      path: '/images'
-    });
-  <% else %>
-    $('#launcher_star').raty({
-      score: <%= @rating.score %>,
-      path: '/images',
-      click: function(score, evt) {
-        $.ajax({
-          url: '/ratings/' + <%= @rating.id %>,
-          type: 'PATCH',
-          beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-          dataType: 'script',
-          data: { score: score }
-        });
-      }
-    });
+  <% if current_launcher %>
+    <% if @rating.score > 0 %>
+      $('#launcher_star').raty({
+        readOnly: true,
+        score: <%= @rating.score %>,
+        path: '/images'
+      });
+    <% else %>
+      $('#launcher_star').raty({
+        score: <%= @rating.score %>,
+        path: '/images',
+        click: function(score, evt) {
+          $.ajax({
+            url: '/ratings/' + <%= @rating.id %>,
+            type: 'PATCH',
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+            dataType: 'script',
+            data: { score: score }
+          });
+        }
+      });
+    <% end %>
   <% end %>
 </script>
 <script type="text/javascript">
@@ -233,7 +238,7 @@
             }
         });
             
-        clock.setTime(220880);
+        clock.setTime(<%= @coin_ico.current_round_time %>);
         clock.setCountdown(true);
         clock.start();
 
