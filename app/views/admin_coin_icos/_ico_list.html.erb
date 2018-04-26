@@ -1,0 +1,19 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Coin Name</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+		<% @coin_icos.each_with_index do |coin_ico,index| %>
+			<tr>
+			  <th scope="row"><%= index+1 %></th>
+			  <td><%= coin_ico.coin_name %></td>
+			  <td><%= link_to "approve", approve_ico_path(coin_ico) %></td>
+			  <td><%= link_to "decline", decline_ico_path(coin_ico) %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

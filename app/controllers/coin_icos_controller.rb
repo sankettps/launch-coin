@@ -5,7 +5,7 @@ class CoinIcosController < ApplicationController
   # GET /coin_icos
   # GET /coin_icos.json
   def index
-    @coin_icos = CoinIco.all.order(:created_at).order("created_at desc")
+    @coin_icos = CoinIco.where(is_approved: true).order("created_at desc")
   end
 
   # GET /coin_icos/1
