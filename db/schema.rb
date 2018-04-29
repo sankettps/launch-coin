@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180426145218) do
+ActiveRecord::Schema.define(version: 20180429104455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,16 @@ ActiveRecord::Schema.define(version: 20180426145218) do
     t.datetime "updated_at", null: false
     t.index ["coin_ico_id"], name: "index_comments_on_coin_ico_id"
     t.index ["launcher_id"], name: "index_comments_on_launcher_id"
+  end
+
+  create_table "favourite_icos", force: :cascade do |t|
+    t.bigint "launcher_id"
+    t.bigint "coin_ico_id"
+    t.boolean "is_favourite"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coin_ico_id"], name: "index_favourite_icos_on_coin_ico_id"
+    t.index ["launcher_id"], name: "index_favourite_icos_on_launcher_id"
   end
 
   create_table "launchers", force: :cascade do |t|
@@ -95,6 +105,8 @@ ActiveRecord::Schema.define(version: 20180426145218) do
   add_foreign_key "coin_icos", "launchers"
   add_foreign_key "comments", "coin_icos"
   add_foreign_key "comments", "launchers"
+  add_foreign_key "favourite_icos", "coin_icos"
+  add_foreign_key "favourite_icos", "launchers"
   add_foreign_key "ratings", "coin_icos"
   add_foreign_key "ratings", "launchers"
 end

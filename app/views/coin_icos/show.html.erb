@@ -15,6 +15,15 @@
             <h2><%= @coin_ico.coin_name %></h2>
             <% if launcher_signed_in? %>
               <div id="launcher_star" class="rates-view"></div>
+              <% if current_launcher.is_favourite_ico?(@coin_ico.id) %>
+                <%= link_to coin_icos_unfavourite_ico_path(ico_id: @coin_ico.id),class: 'favourite-ico' do %>
+                  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                <% end %>
+              <% else %>
+                <%= link_to coin_icos_favourite_ico_path(ico_id: @coin_ico.id),class: 'favourite-ico' do %>
+                  <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+                <% end %>
+              <% end %>
             <% else %>
               <div id="star" class="rates-view"></div>
             <% end %>

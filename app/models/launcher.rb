@@ -6,6 +6,8 @@ class Launcher < ApplicationRecord
   has_many :coin_icos, dependent: :destroy 
   has_many :comments, dependent: :destroy 
   has_many :ratings, dependent: :destroy 
+  has_many :favourite_icos, dependent: :destroy 
+  has_many :favourite_coin_icos, source: :coin_ico, through: :favourite_icos
   
   def self.from_omniauth(access_token)
 	  data = access_token.info
@@ -21,5 +23,9 @@ class Launcher < ApplicationRecord
 
 	def name
 		"#{first_name || ''} #{last_name || ''}"
+	end
+
+	def is_favourite_ico?(coin_ico)
+		favourite_icos.find_by(coin_ico_id: coin_ico,is_favourite: true).present?
 	end
 end

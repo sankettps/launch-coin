@@ -71,7 +71,22 @@ class CoinIcosController < ApplicationController
   end
 
   def launcher_coin_icos
-    @coin_icos = current_launcher.coin_icos.order("created_at desc")
+    # @coin_icos = current_launcher.coin_icos.order("created_at desc")
+    @coin_icos = current_launcher.favourite_coin_icos.order("created_at desc")
+  end
+
+  def favourite_ico
+    # current_launcher.favourite_icos.create_with(coin_ico_id: params[:ico_id],is_favourite: true).find_or_create_by(coin_ico_id: params[:ico_id])
+    current_launcher.favourite_icos.create(coin_ico_id: params[:ico_id],is_favourite: true)
+    redirect_to coin_ico_path(params[:ico_id])
+  end
+
+  def unfavourite_ico
+    @fav_ico  = current_launcher.favourite_icos.find_by(coin_ico_id: params[:ico_id])
+    if @fav_ico.present?
+      @fav_ico.destroy
+    end
+    redirect_to coin_ico_path(params[:ico_id])
   end
 
   private
