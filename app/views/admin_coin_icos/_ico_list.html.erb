@@ -9,10 +9,9 @@
   <tbody>
 		<% @coin_icos.each_with_index do |coin_ico,index| %>
 			<tr>
-			  <th scope="row"><%= index+1 %></th>
+			  <td scope="row"><%= index+1 %></td>
 			  <td><%= coin_ico.coin_name %></td>
-			  <td><%= link_to "approve", approve_ico_path(coin_ico),class: 'approve' %></td>
-			  <td><%= link_to "decline", decline_ico_path(coin_ico),class: 'decline' %></td>
+			  <td><%= link_to "approve", approve_ico_path(coin_ico),class: 'approve' %><%= link_to "decline", decline_ico_path(coin_ico),class: 'decline' %></td>
 			</tr>
 		<% end %>
 	</tbody>
