@@ -17,6 +17,8 @@
 //= require jquery.raty
 //= require moment
 //= require bootstrap-datetimepicker
+//= require jquery.dataTables.min
+//= require dataTables.bootstrap.min
 //= require particles
 //= require flipclock
 //= require bootstrap-select.min
