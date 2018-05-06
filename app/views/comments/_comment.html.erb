@@ -1,34 +1,61 @@
 <% if comment.id.present? %>
-	<li>
-	  <div class="message-box">
-	    <div class="user-icon">
-	      <img src="/images/coin-2.png">
-	    </div>
-	    <div class="user-review">
-	      <h6><%= comment.launcher.name.titleize %></h6>
-	      <ul class="rates-view">
-	        <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
-	        <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
-	        <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
-	        <li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
-	        <li><a href="#"><i class="fa fa-star"></i></a> </li>
-	      </ul>
-	      <div class="date"><i class="fa fa-calendar"></i> <%= comment.created_at.strftime("%B %d,%Y") %></div>
-	      <p><%= comment.description %></p>
-	    </div>
-	  </div>
-	</li>
-<% end %>
-
-<%# if comment.id.present? %>
-	<!-- <div class="row">
-		<div class="col-xs-12">
-			<%#= comment.description %>
+<li class="active">
+	<div class="message-box">
+		<div class="user-icon">
+			<img src="/images/coin-2.png">
 		</div>
+		<div class="user-review">
+			<h6><%= comment.launcher.name.titleize %></h6>
+			<!-- <ul class="rates-view">
+				<li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+				<li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+				<li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+				<li class="active"><a href="#"><i class="fa fa-star"></i></a> </li>
+				<li><a href="#"><i class="fa fa-star"></i></a> </li>
+			</ul> -->
+			<div class="date"><i class="fa fa-calendar"></i> <%= comment.created_at.strftime("%B %d,%Y") %></div>
+			<p><%= comment.description %></p>
+			<% if launcher_signed_in? %>
+				<span class="link-unlike">
+					<%= link_to comments_like_comment_path(id: comment.id) do %>
+						<% if comment.comment_likes.find_by(launcher_id: current_launcher.id,is_liked: true).present? %>
+							<i class="fas fa-thumbs-up"></i>
+						<% else %>
+							<i class="far fa-thumbs-up"></i>
+						<% end %>
+					<% end %>
+					<%= link_to comments_unlike_comment_path(id: comment.id) do %>
+						<% if comment.comment_likes.find_by(launcher_id: current_launcher.id,is_liked: false).present? %>
+							<i class="fas fa-thumbs-down"></i>
+						<% else %>
+							<i class="far fa-thumbs-down"></i>
+						<% end %>
+					<% end %>
+				</span>
+				<span class="reply comment-reply" data-id="<%= comment.id %>">reply</span>
+				<!-- <div class="reply-box">
+					<textarea placeholder="Type here..."></textarea>
+				</div> -->
+				<div class="post-reply" id="commentReply<%= comment.id %>">
+	        <%#= render 'comment_replies/form', commentReplay: CommentReply.new if current_launcher%>
+	      </div>
+	    <% end %>
+		</div>
+		<ul class="replay">
+			<%= render comment.comment_replies.order("created_at desc") %>
+		</ul>
 	</div>
-	<div class="row">
-		<div class="col-xs-6 col-xs-offset-6">
-			<strong><%#= comment.launcher.name %></strong>
+</li>
+<% end %>
+<%# if comment.id.present? %>
+<!-- <div class="row">
+		<div class="col-xs-12">
+				<%#= comment.description %>
 		</div>
-	</div> -->
+</div>
+<div class="row">
+		<div class="col-xs-6 col-xs-offset-6">
+				<strong><%#= comment.launcher.name %></strong>
+		</div>
+</div> -->
 <%# end %>

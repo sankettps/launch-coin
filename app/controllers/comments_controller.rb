@@ -62,6 +62,21 @@ class CommentsController < ApplicationController
     end
   end
 
+  def like_comment
+    @comment_like = current_launcher.comment_likes.find_or_create_by(comment_id: params[:id])
+    @comment_like.is_liked = true
+    @comment_like.save
+    redirect_to request.referrer
+  end
+
+  def unlike_comment
+    # current_launcher.comment_likes.find_by(likeable_id: params[:id],likeable_type: 'Comment').try(:destroy)
+    @comment_like = current_launcher.comment_likes.find_or_create_by(comment_id: params[:id])
+    @comment_like.is_liked = false
+    @comment_like.save
+    redirect_to request.referrer
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment

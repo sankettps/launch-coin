@@ -1,0 +1,10 @@
+<%= form_with(model: commentReplay, local: true) do |form| %>
+  <div class="field">
+    <%= form.hidden_field :comment_id, value: @comment_id %>
+  </div>
+  <div class="form-group">
+    <%= form.text_area :description, id: :comment_reply_description,placeholder: "Type here..." %>
+    <!-- <textarea placeholder="Add your comments"></textarea> -->
+  </div>
+  <button type="submit" class="custom-btn">Post</button>
+<% end %>

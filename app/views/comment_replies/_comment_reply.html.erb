@@ -1,0 +1,30 @@
+<li>
+	<div class="message-box">
+		<div class="user-icon">
+			<img src="/images/coin-2.png">
+		</div>
+		<div class="user-review">
+			<h6><%= comment_reply.launcher.name.titleize %></h6>
+			<div class="date"><i class="fa fa-calendar"></i> <%= comment_reply.created_at.strftime("%B %d,%Y") %></div>
+			<p><%= comment_reply.description %></p>
+			<% if launcher_signed_in? %>
+				<span class="link-unlike">
+					<%= link_to comment_replies_like_comment_reply_path(id: comment_reply.id) do %>
+						<% if comment_reply.comment_reply_likes.find_by(launcher_id: current_launcher.id,is_liked: true).present? %>
+							<i class="fas fa-thumbs-up"></i>
+						<% else %>
+							<i class="far fa-thumbs-up"></i>
+						<% end %>
+					<% end %>
+					<%= link_to comment_replies_unlike_comment_reply_path(id: comment_reply.id) do %>
+						<% if comment_reply.comment_reply_likes.find_by(launcher_id: current_launcher.id,is_liked: false).present? %>
+							<i class="fas fa-thumbs-down"></i>
+						<% else %>
+							<i class="far fa-thumbs-down"></i>
+						<% end %>
+					<% end %>
+				</span>
+			<% end %>
+		</div>
+	</div>
+</li>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180429104455) do
+ActiveRecord::Schema.define(version: 20180506055931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,36 @@ ActiveRecord::Schema.define(version: 20180429104455) do
     t.datetime "updated_at", null: false
     t.boolean "is_approved"
     t.index ["launcher_id"], name: "index_coin_icos_on_launcher_id"
+  end
+
+  create_table "comment_likes", force: :cascade do |t|
+    t.bigint "launcher_id"
+    t.bigint "comment_id"
+    t.boolean "is_liked"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_comment_likes_on_comment_id"
+    t.index ["launcher_id"], name: "index_comment_likes_on_launcher_id"
+  end
+
+  create_table "comment_replies", force: :cascade do |t|
+    t.bigint "launcher_id"
+    t.bigint "comment_id"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_comment_replies_on_comment_id"
+    t.index ["launcher_id"], name: "index_comment_replies_on_launcher_id"
+  end
+
+  create_table "comment_reply_likes", force: :cascade do |t|
+    t.bigint "launcher_id"
+    t.bigint "comment_reply_id"
+    t.boolean "is_liked"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_reply_id"], name: "index_comment_reply_likes_on_comment_reply_id"
+    t.index ["launcher_id"], name: "index_comment_reply_likes_on_launcher_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -103,6 +133,12 @@ ActiveRecord::Schema.define(version: 20180429104455) do
   end
 
   add_foreign_key "coin_icos", "launchers"
+  add_foreign_key "comment_likes", "comments"
+  add_foreign_key "comment_likes", "launchers"
+  add_foreign_key "comment_replies", "comments"
+  add_foreign_key "comment_replies", "launchers"
+  add_foreign_key "comment_reply_likes", "comment_replies"
+  add_foreign_key "comment_reply_likes", "launchers"
   add_foreign_key "comments", "coin_icos"
   add_foreign_key "comments", "launchers"
   add_foreign_key "favourite_icos", "coin_icos"

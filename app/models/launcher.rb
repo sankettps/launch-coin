@@ -8,6 +8,9 @@ class Launcher < ApplicationRecord
   has_many :ratings, dependent: :destroy 
   has_many :favourite_icos, dependent: :destroy 
   has_many :favourite_coin_icos, source: :coin_ico, through: :favourite_icos
+  has_many :comment_replies, dependent: :destroy 
+  has_many :comment_likes, dependent: :destroy 
+  has_many :comment_reply_likes, dependent: :destroy 
   
   def self.from_omniauth(access_token)
 	  data = access_token.info

@@ -14,6 +14,7 @@
  *= require owl.carousel.min
  *= require bootstrap-datetimepicker
  *= require bootstrap-select.min
+ *= require dataTables.bootstrap.min
  *= require flipclock
  *= require style
  *= require custom

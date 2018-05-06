@@ -166,6 +166,24 @@
       });
     <% end %>
   <% end %>
+  $(document).on('click', '.comment-reply', function(event) {
+    $.ajax({
+      url: '/comment_replies/new',
+      type: 'GET',
+      dataType: 'script',
+      data: {id: $(this).data("id")},
+    })
+    .done(function() {
+      console.log("success");
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+    
+  });
 </script>
 <script type="text/javascript">
   $(document).ready(function() {
