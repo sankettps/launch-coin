@@ -1,6 +1,12 @@
 .white{
 	color: white;
 }
+.blank-clock-set{
+  text-align: center;
+  padding: 15px 0;
+  float: left;
+  width: 100%;
+}
 .rates-view{
 	margin-top: 20px;
   padding: 0;

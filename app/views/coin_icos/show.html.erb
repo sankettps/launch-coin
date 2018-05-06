@@ -1,3 +1,4 @@
+<% current_round_time =  @coin_ico.current_round_time %>
 <div class="coin-list">
 
   <div class="fix-view profile-view">
@@ -71,9 +72,24 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <div class="clock-set">
-          <div class="clock"></div>
-        </div>
+        <ul class="round-view">
+          <% @coin_ico.rounds_with_status.each do |key,value| %>
+            <li class="<%= value['status'] == 'Active' ? 'active' : '' %>">
+              <div class="round-box">
+                <h1>Round <%= key %></h1>
+                 <div class="status"><%= value['status'] %></div>
+                 <div class="date-view"><%= value['start_date'] %> <span>To</span> <%= value['end_date'] %></div>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+        <% if current_round_time > 0 %>
+          <div class="clock-set">
+            <div class="clock"></div>
+          </div>
+        <% else %>
+          <div class="blank-clock-set"></div>
+        <% end %>
       </div>
       <div class="col-xs-12">
         <div class="desc-view">
@@ -251,25 +267,26 @@
         });
       });
     });
-    var clock;
-    $(document).ready(function() {
-      var clock;
 
-      clock = $('.clock').FlipClock({
-            clockFace: 'DailyCounter',
-            autoStart: false,
-            callbacks: {
-              stop: function() {
-                $('.message').html('The clock has stopped!')
-              }
+    <% if current_round_time > 0 %>
+      var clock;
+      $(document).ready(function() {
+        var clock;
+        clock = $('.clock').FlipClock({
+          clockFace: 'DailyCounter',
+          autoStart: false,
+          callbacks: {
+            stop: function() {
+              $('.message').html('The clock has stopped!')
             }
+          }
         });
-            
-        clock.setTime(<%= @coin_ico.current_round_time %>);
+              
+        clock.setTime(<%= current_round_time %>);
         clock.setCountdown(true);
         clock.start();
-
-    });
+      });
+    <% end %>
   particlesJS('particles-js',
     {
       "particles": {

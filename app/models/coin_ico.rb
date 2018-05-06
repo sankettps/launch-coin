@@ -26,4 +26,28 @@ class CoinIco < ApplicationRecord
 		end
 		return 0 
 	end
+
+	def rounds_with_status
+		all_rounds = {}
+		rounds.each do |key,round|
+			single_round = {}
+			round = eval(round)
+			start_date = round["start_date"].to_datetime
+			end_date = round["end_date"].to_datetime
+			single_round["start_date"] = start_date.strftime("%d/%m/%Y")
+			single_round["end_date"] = end_date.strftime("%d/%m/%Y")
+			if start_date < Time.now && end_date > Time.now
+				single_round["status"] = "Active"
+				#running
+			elsif start_date > Time.now
+				single_round["status"] = "Pending"
+				#pending
+			elsif start_date < Time.now
+				single_round["status"] = "Completed"
+				#completed
+			end
+			all_rounds[key] = single_round
+		end
+		return all_rounds 
+	end
 end
